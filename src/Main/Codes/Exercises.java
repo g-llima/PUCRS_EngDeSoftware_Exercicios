@@ -224,4 +224,33 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise7() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira o valor: ");
+            int value = sc.nextInt();
+
+            // THROW ERROR WHEN VALUE IS NOT 4 DIGITS
+            if (value < 1000) throw new InputMismatchException();
+
+            // GET THE HALF OF THE VALUE
+            int leftHalf = Integer.parseInt(Integer.toString(value).substring(0, 2));
+            int rightHalf = Integer.parseInt(Integer.toString(value).substring(2));
+            int halfSum = leftHalf + rightHalf;
+
+            // CHECK IF IT HAS THE PROPERTIES
+            if (Math.pow(halfSum, 2) == value) {
+                System.out.println("POSSUI a mesma característica que o número 3025.");
+                return;
+            }
+            System.out.println("NÃO POSSUI a mesma característica do número 3025.");
+
+         // BUG HANDLER
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
