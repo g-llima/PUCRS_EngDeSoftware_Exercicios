@@ -68,4 +68,28 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise3() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            DecimalFormat df = new DecimalFormat("#.#");
+
+            System.out.print("Insira o primeiro valor: ");
+            float valor1 = sc.nextFloat();
+
+            System.out.print("Insira o segundo valor: ");
+            float valor2 = sc.nextFloat();
+
+            if (valor1 % valor2 == 0) {
+                System.out.format(valor1 + " É divisivel por " + valor2 + ".");
+                return;
+            }
+            System.out.format(valor1 + " NÃO É divisivel por " + valor2 + ".");
+
+
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido.");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
