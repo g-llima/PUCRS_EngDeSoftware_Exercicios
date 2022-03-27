@@ -1,0 +1,49 @@
+package Main.Codes;
+
+import java.text.DecimalFormat;
+import java.util.*;
+
+public class Exercises {
+
+    public static void exercise1() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            DecimalFormat df = new DecimalFormat("#.#");
+            List<String> resultado = new ArrayList<>();
+
+            System.out.print("Insira o primeiro valor: ");
+            float valor1 = sc.nextFloat(); // GET 1° VALUE
+
+            System.out.print("Insira o segundo valor: ");
+            float valor2 = sc.nextFloat(); // GET 2° VALUE
+
+            System.out.print("Insira o terceiro valor: ");
+            float valor3 = sc.nextFloat(); // GET 3° VALUE
+
+            if (valor1 != valor2 && valor1 != valor3 && valor2 != valor3) // CHECK IF ARE EQUAL
+            {
+                // SORT VALUES
+                float[] listaValores = {valor1, valor2, valor3};
+                Arrays.sort(listaValores);
+
+                for (float valor : listaValores)
+                {
+                    resultado.add(df.format(valor)); // REMOVE UNNECESSARY ZEROS AFTER VALUE & APPEND TO LIST
+                }
+
+                // LOG RESULT
+                System.out.println(resultado);
+                return;
+            }
+
+            System.out.println("Valores iguais.");
+
+            // BUG HANDLER
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido. (Tente usar '.')");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
