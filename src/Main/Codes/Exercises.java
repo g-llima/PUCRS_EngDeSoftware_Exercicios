@@ -92,4 +92,49 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise4(){
+        try {
+            Scanner sc = new Scanner(System.in);
+            // GET START TIME
+            System.out.println("------HORÁRIO INICIAL------");
+            System.out.print("Hora: ");
+            int horaInicial = sc.nextInt();
+
+            System.out.print("Minutos: ");
+            int minutosInicial = sc.nextInt();
+
+
+            // GET END TIME
+            System.out.println("------HORÁRIO FINAL------");
+            System.out.print("Hora: ");
+            int horaFinal = sc.nextInt();
+
+            System.out.print("Minutos: ");
+            int minutosFinal = sc.nextInt();
+
+            // CHECK IF TIME IS VALID
+            if (horaInicial >= 24 ||
+                    horaInicial< 0 ||
+                    horaFinal >= 24 ||
+                    horaFinal < 0 ||
+                    minutosInicial >= 60 ||
+                    minutosInicial < 0 ||
+                    minutosFinal >= 60 ||
+                    minutosFinal < 0) throw new InputMismatchException();
+
+            // CHECK IF IT END IN THE NEXT DAY
+            if (horaFinal < horaInicial || horaFinal <= horaInicial && minutosFinal <= minutosInicial) horaFinal += 24;
+            if (minutosFinal < minutosInicial) {
+                horaFinal--;
+                minutosFinal += 60;
+            }
+
+            System.out.println("O jogo durou " + (horaFinal - horaInicial) + " horas e " + (minutosFinal - minutosInicial) + " minutos.");
+
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
