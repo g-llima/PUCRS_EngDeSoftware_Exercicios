@@ -185,4 +185,43 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise6() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Lado 1: ");
+            float lado1 = sc.nextFloat();
+
+            System.out.print("Lado 2: ");
+            float lado2 = sc.nextFloat();
+
+            System.out.print("Lado 3: ");
+            float lado3 = sc.nextFloat();
+
+            if (lado1 > Math.abs(lado3 - lado2) && (lado1 < (lado2 + lado3)) ||
+                lado2 > Math.abs(lado3 - lado1) && (lado2 < (lado1 + lado3)) ||
+                lado3 > Math.abs(lado1 - lado2) && (lado3 < (lado2 + lado1)))
+            {
+                if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3)
+                {
+                    System.out.println("O triângulo é ESCALENO.");
+                    return;
+                }
+                if (lado1 == lado2 && lado1 == lado3)
+                {
+                    System.out.println("O triângulo é EQUILÁTERO.");
+                    return;
+                }
+                System.out.println("O triângulo é ISÓSCELES.");
+
+            } else {
+                System.out.println("Não é triângulo.");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inváido.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
