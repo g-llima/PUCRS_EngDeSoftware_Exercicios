@@ -1,6 +1,9 @@
 package Main.Codes;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Exercises {
@@ -45,5 +48,24 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise2() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
+            System.out.print("Insira uma data (dd/MM/yyyy): ");
+            String data = sc.next(); // GET DATE
+
+            // VALIDATE DATE
+            df.setLenient(false);
+            df.parse(data);
+
+            System.out.println("A data é válida.");
+
+        } catch (ParseException e) {
+            System.out.println("Data inválida.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
