@@ -253,4 +253,34 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise8() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            DecimalFormat df = new DecimalFormat("#.##");
+
+            System.out.print("Primeiro valor: ");
+            float valor1 = sc.nextFloat();
+
+            System.out.print("(+, -, x, /): ");
+            String operador = sc.next().toLowerCase();
+
+            System.out.print("Segundo valor: ");
+            float valor2 = sc.nextFloat();
+
+            System.out.println("\n----------RESULTADO----------\n");
+
+            switch (operador)
+            {
+                case "+" -> System.out.println(df.format(valor1) + " + " + df.format(valor2) + " = " + df.format(valor1 + valor2));
+                case "-" -> System.out.println(df.format(valor1) + " - " + df.format(valor2) + " = " + df.format(valor1 - valor2));
+                case "x" -> System.out.println(df.format(valor1) + " x " + df.format(valor2) + " = " + df.format(valor1 * valor2));
+                case "/" -> System.out.println(df.format(valor1) + " / " + df.format(valor2) + " = " + df.format(valor1 / valor2));
+                default -> System.out.println("Operador inválido");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
