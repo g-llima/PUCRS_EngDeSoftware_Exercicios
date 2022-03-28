@@ -313,4 +313,33 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise10() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira o valor: ");
+            int valor = sc.nextInt(), valorReverso = 0, valorTemp = valor;
+
+            if (valor < 1000 || valor > 9999) throw new InputMismatchException();
+
+            while (valor != 0)
+            {
+                int digito = valor % 10;
+                valorReverso = (valorReverso * 10) + digito;
+                valor = (valor - digito) / 10;
+            }
+
+            if (valorTemp == valorReverso)
+            {
+                System.out.println("O valor É capicuo.");
+                return;
+            }
+            System.out.println("O valor NÃO É capicuo.");
+
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
