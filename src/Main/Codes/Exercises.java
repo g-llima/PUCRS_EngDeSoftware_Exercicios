@@ -14,6 +14,8 @@ public class Exercises {
             DecimalFormat df = new DecimalFormat("#.#");
             List<String> resultado = new ArrayList<>();
 
+            System.out.println("--------------EXERCÍCIO 1-------------- \n");
+
             System.out.print("Insira o primeiro valor: ");
             float valor1 = sc.nextFloat(); // GET 1° VALUE
 
@@ -53,6 +55,8 @@ public class Exercises {
             Scanner sc = new Scanner(System.in);
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
+            System.out.println("--------------EXERCÍCIO 2-------------- \n");
+
             System.out.print("Insira uma data (dd/MM/yyyy): ");
             String data = sc.next(); // GET DATE
 
@@ -73,19 +77,24 @@ public class Exercises {
             Scanner sc = new Scanner(System.in);
             DecimalFormat df = new DecimalFormat("#.#");
 
+            System.out.println("--------------EXERCÍCIO 3-------------- \n");
+
             System.out.print("Insira o primeiro valor: ");
-            float valor1 = sc.nextFloat();
+            float valor1 = sc.nextFloat(); // GET 1ST VALUE
 
             System.out.print("Insira o segundo valor: ");
-            float valor2 = sc.nextFloat();
+            float valor2 = sc.nextFloat(); // GET 2ND VALUE
 
-            if (valor1 % valor2 == 0) {
+            // CHECK IF IT'S DIVISIBLE
+            if (valor1 % valor2 == 0)
+            {
                 System.out.format(valor1 + " É divisivel por " + valor2 + ".");
                 return;
             }
+
             System.out.format(valor1 + " NÃO É divisivel por " + valor2 + ".");
 
-
+            // BUG HANDLER
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido.");
         } catch (Exception e){
@@ -95,6 +104,8 @@ public class Exercises {
     public static void exercise4(){
         try {
             Scanner sc = new Scanner(System.in);
+            System.out.println("--------------EXERCÍCIO 4-------------- \n");
+
             // GET START TIME
             System.out.println("------HORÁRIO INICIAL------");
             System.out.print("Hora: ");
@@ -140,6 +151,8 @@ public class Exercises {
     public static void exercise5() {
         try {
             Scanner sc = new Scanner(System.in);
+
+            System.out.println("--------------EXERCÍCIO 5-------------- \n");
 
             // GET START TIME
             System.out.println("------HORÁRIO INICIAL------");
@@ -189,35 +202,44 @@ public class Exercises {
         try {
             Scanner sc = new Scanner(System.in);
 
+            System.out.println("--------------EXERCÍCIO 6-------------- \n");
+
             System.out.print("Lado 1: ");
-            float lado1 = sc.nextFloat();
+            float lado1 = sc.nextFloat(); // GET 1ST SIDE
 
             System.out.print("Lado 2: ");
-            float lado2 = sc.nextFloat();
+            float lado2 = sc.nextFloat(); // GET 2ND SIDE
 
             System.out.print("Lado 3: ");
-            float lado3 = sc.nextFloat();
+            float lado3 = sc.nextFloat(); // GET 3RD SIDE
 
+            // CHECK IF IT'S POSSIBLE TO MAKE A TRIANGLE
             if (lado1 > Math.abs(lado3 - lado2) && (lado1 < (lado2 + lado3)) ||
                 lado2 > Math.abs(lado3 - lado1) && (lado2 < (lado1 + lado3)) ||
                 lado3 > Math.abs(lado1 - lado2) && (lado3 < (lado2 + lado1)))
             {
+                // CHECK IF IT'S SCALENE
                 if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3)
                 {
                     System.out.println("O triângulo é ESCALENO.");
                     return;
                 }
+
+                // CHECK IF IT'S EQUILATERAL
                 if (lado1 == lado2 && lado1 == lado3)
                 {
                     System.out.println("O triângulo é EQUILÁTERO.");
                     return;
                 }
+
                 System.out.println("O triângulo é ISÓSCELES.");
 
+                // IF IT'S NOT POSSIBLE TO MAKE A TRIANGLE
             } else {
                 System.out.println("Não é triângulo.");
             }
 
+            // BUG HANDLER
         } catch (InputMismatchException e) {
             System.out.println("Valor inváido.");
         } catch (Exception e) {
@@ -228,11 +250,13 @@ public class Exercises {
         try {
             Scanner sc = new Scanner(System.in);
 
+            System.out.println("--------------EXERCÍCIO 7-------------- \n");
+
             System.out.print("Insira o valor: ");
-            int value = sc.nextInt();
+            int value = sc.nextInt(); // GET VALUE
 
             // THROW ERROR WHEN VALUE IS NOT 4 DIGITS
-            if (value < 1000) throw new InputMismatchException();
+            if (value < 1000 || value > 9999) throw new InputMismatchException();
 
             // GET THE HALF OF THE VALUE
             int leftHalf = Integer.parseInt(Integer.toString(value).substring(0, 2));
@@ -258,14 +282,16 @@ public class Exercises {
             Scanner sc = new Scanner(System.in);
             DecimalFormat df = new DecimalFormat("#.##");
 
+            System.out.println("--------------EXERCÍCIO 8-------------- \n");
+
             System.out.print("Primeiro valor: ");
-            float valor1 = sc.nextFloat();
+            float valor1 = sc.nextFloat(); // GET FIRST VALUE
 
             System.out.print("(+, -, x, /): ");
-            String operador = sc.next().toLowerCase();
+            String operador = sc.next().toLowerCase(); // GET OPERATOR
 
             System.out.print("Segundo valor: ");
-            float valor2 = sc.nextFloat();
+            float valor2 = sc.nextFloat(); // GET SECOND VALUE
 
             System.out.println("\n----------RESULTADO----------\n");
 
@@ -277,6 +303,8 @@ public class Exercises {
                 case "/" -> System.out.println(df.format(valor1) + " / " + df.format(valor2) + " = " + df.format(valor1 / valor2));
                 default -> System.out.println("Operador inválido");
             }
+
+            // BUG HANDLER
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido.");
         } catch (Exception e) {
@@ -288,10 +316,14 @@ public class Exercises {
             Scanner sc = new Scanner(System.in);
             float aumentoSalario;
 
-            System.out.print("Plano de trabalho (A, B, C, D, E): ");
-            char planoTrabalho = sc.next().toLowerCase().charAt(0);
+            System.out.println("--------------EXERCÍCIO 9-------------- \n");
 
-            switch (planoTrabalho) {
+            System.out.print("Plano de trabalho (A, B, C, D, E): ");
+            char planoTrabalho = sc.next().toLowerCase().charAt(0); // GET WORK PLAN
+
+            // SET THE INCREASE DEPENDING ON WORK PLAN
+            switch (planoTrabalho)
+            {
                 case 'a' -> aumentoSalario = 0.1f;
                 case 'b' -> aumentoSalario = 0.15f;
                 case 'c' -> aumentoSalario = 0.2f;
@@ -302,11 +334,13 @@ public class Exercises {
                     return;
                 }
             }
+
             System.out.print("Salário: R$");
-            float salario = sc.nextFloat();
+            float salario = sc.nextFloat(); // GET CURRENT SALARY
 
-            System.out.println("Salário atualizado: R$" + (salario + (salario * aumentoSalario)));
+            System.out.println("Salário atualizado: R$" + (salario + (salario * aumentoSalario))); // PRINT UPDATED SALARY
 
+            // BUG HANDLER
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido.");
         } catch (Exception e) {
@@ -317,11 +351,14 @@ public class Exercises {
         try {
             Scanner sc = new Scanner(System.in);
 
+            System.out.println("--------------EXERCÍCIO 10-------------- \n");
+
             System.out.print("Insira o valor: ");
-            int valor = sc.nextInt(), valorReverso = 0, valorTemp = valor;
+            int valor = sc.nextInt(), valorReverso = 0, valorTemp = valor; // GET VALUE & SET VARIABLES
 
-            if (valor < 1000 || valor > 9999) throw new InputMismatchException();
+            if (valor < 1000 || valor > 9999) throw new InputMismatchException(); // CHECK IF IT'S 4 DIGIT
 
+            // REVERSE 'VALOR'
             while (valor != 0)
             {
                 int digito = valor % 10;
@@ -329,13 +366,16 @@ public class Exercises {
                 valor = (valor - digito) / 10;
             }
 
+            // CHECK IF REVERSED VALUE IS EQUAL TO THE ORIGINAL VALUE
             if (valorTemp == valorReverso)
             {
                 System.out.println("O valor É capicuo.");
                 return;
             }
+
             System.out.println("O valor NÃO É capicuo.");
 
+            // BUG HANDLER
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido.");
         } catch (Exception e) {
