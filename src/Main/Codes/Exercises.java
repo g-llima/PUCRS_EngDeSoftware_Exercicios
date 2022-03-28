@@ -283,4 +283,34 @@ public class Exercises {
             e.printStackTrace();
         }
     }
+    public static void exercise9() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            float aumentoSalario;
+
+            System.out.print("Plano de trabalho (A, B, C, D, E): ");
+            char planoTrabalho = sc.next().toLowerCase().charAt(0);
+
+            switch (planoTrabalho) {
+                case 'a' -> aumentoSalario = 0.1f;
+                case 'b' -> aumentoSalario = 0.15f;
+                case 'c' -> aumentoSalario = 0.2f;
+                case 'd' -> aumentoSalario = 0.25f;
+                case 'e' -> aumentoSalario = 0.3f;
+                default -> {
+                    System.out.println("Plano inválido.");
+                    return;
+                }
+            }
+            System.out.print("Salário: R$");
+            float salario = sc.nextFloat();
+
+            System.out.println("Salário atualizado: R$" + (salario + (salario * aumentoSalario)));
+
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
