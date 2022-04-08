@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ex1();
+        //ex1();
+        ex2();
     }
 
     static void ex1() {
@@ -59,6 +60,57 @@ public class Main {
             }
             System.out.printf("\nMaior: %.02f", maior);
 
+
+        } catch (InputMismatchException e) {
+            System.out.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    static void ex2() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            int equilateros = 0;
+
+            for (int i = 1; i <= 6; i++) {
+                System.out.printf("\n------ LOOP %d ------\n", i);
+
+                System.out.print("Primeiro lado: ");
+                float lado1 = sc.nextFloat();
+
+                System.out.print("Segundo lado: ");
+                float lado2 = sc.nextFloat();
+
+                System.out.print("Terceiro lado: ");
+                float lado3 = sc.nextFloat();
+
+                if (lado1 > Math.abs(lado3 - lado2) && (lado1 < (lado2 + lado3)) ||
+                        lado2 > Math.abs(lado3 - lado1) && (lado2 < (lado1 + lado3)) ||
+                        lado3 > Math.abs(lado1 - lado2) && (lado3 < (lado2 + lado1)))
+                {
+                    // CHECK IF IT'S SCALENE
+                    if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3)
+                    {
+                        System.out.println("O triângulo é ESCALENO.");
+                        continue;
+                    }
+
+                    // CHECK IF IT'S EQUILATERAL
+                    if (lado1 == lado2 && lado1 == lado3)
+                    {
+                        System.out.println("O triângulo é EQUILÁTERO.");
+                        equilateros++;
+                        continue;
+                    }
+
+                    System.out.println("O triângulo é ISÓSCELES.");
+
+                    // IF IT'S NOT POSSIBLE TO MAKE A TRIANGLE
+                } else {
+                    System.out.println("Não é triângulo.");
+                }
+            }
+            System.out.printf("\nSe formaram %d triângulos equiláteros.", equilateros);
 
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido");
