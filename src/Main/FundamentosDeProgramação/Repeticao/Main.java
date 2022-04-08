@@ -1,13 +1,15 @@
 package Main.FundamentosDeProgramação.Repeticao;
 
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         //ex1();
-        ex2();
+       // ex2();
+        ex3();
     }
 
     static void ex1() {
@@ -114,6 +116,48 @@ public class Main {
 
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    static void ex3() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            String signo;
+
+            for (int i = 1; i <= 5; i++) {
+                System.out.printf("\n------ PESSOA %d ------\n", i);
+
+                System.out.print("Mês: ");
+                String mes = sc.next().toLowerCase();
+
+                System.out.print("Dia: ");
+                int dia = sc.nextInt();
+
+                if (dia > 30) { System.err.println("Valor inválido"); continue; }
+
+                if (dia >= 21 && mes.equals("janeiro") || dia <= 19 && mes.equals("fevereiro")) { signo = "Aquário"; }
+                else if (dia >= 20 && mes.equals("fevereiro") || dia <= 20 && mes.equals("março")) { signo = "Peixes"; }
+                else if (dia >= 21 && mes.equals("março") || dia <= 20 && mes.equals("abril")) { signo = "Áries"; }
+                else if (dia >= 21 && mes.equals("abril") || dia <= 20 && mes.equals("maio")) { signo = "Touro"; }
+                else if (dia >= 21 && mes.equals("maio") || dia <= 20 && mes.equals("junho")) { signo = "Gémeos"; }
+                else if (dia >= 21 && mes.equals("junho") || dia <= 21 && mes.equals("julho")) { signo = "Câncer"; }
+                else if (dia >= 22 && mes.equals("julho") || dia <= 22 && mes.equals("agosto")) { signo = "Leão"; }
+                else if (dia >= 23 && mes.equals("agosto") || dia <= 21 && mes.equals("setembro")) { signo = "Virgem"; }
+                else if (dia >= 22 && mes.equals("setembro") || dia <= 22 && mes.equals("outubro")) { signo = "Libra"; }
+                else if (dia >= 23 && mes.equals("outubro") || dia <= 21 && mes.equals("novembro")) { signo = "Excorpião"; }
+                else if (dia >= 22 && mes.equals("novembro") || dia <= 21 && mes.equals("dezembro")) { signo = "Sagitário"; }
+                else if (dia >= 22 && mes.equals("dezembro") || dia <= 20 && mes.equals("janeiro")) { signo = "Capricórnio"; }
+                else {
+                    System.err.println("Valor inválido");
+                    continue;
+                }
+
+                System.out.printf("\nSeu signo é: %s.\n", signo);
+            }
+
+        } catch (InputMismatchException e) {
+            System.err.println("Valor inválido");
         } catch (Exception e) {
             e.printStackTrace();
         }
