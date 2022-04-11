@@ -318,17 +318,7 @@ public class Main {
                 }
 
                 int div = 2;
-                while (div < valor) {
-                    if (valor % div == 0) {
-                        System.out.println("O valor NÃO É primo.");
-                        break;
-                    }
-                    div++;
-                }
-                if (div == valor) {
-                    System.out.println("O valor É primo.");
-                    primo++;
-                }
+                primo = getPrimo(primo, div, valor);
             }
             System.out.printf("\nNo total %d valores eram primos.", primo);
 
@@ -337,5 +327,59 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+       static void ex7() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            int primo = 0;
+
+            System.out.println("------ LOOP 1 ------");
+            System.out.print("Valor: ");
+            int maior = sc.nextInt();
+            if (maior <= 0) {
+                System.err.println("Valor inválido.");
+                return;
+            }
+
+            int div = 2;
+            primo = getPrimo(primo, div, maior);
+
+            for (int i = 2; i <= 10; i++) {
+                System.out.printf("\n------ LOOP %d ------\n", i);
+                System.out.print("Valor: ");
+                int valor = sc.nextInt();
+                if (valor <= 0) {
+                    System.err.println("Valor inválido.");
+                    continue;
+                }
+                if (valor > maior) { maior = valor; }
+
+                div = 2;
+                primo = getPrimo(primo, div, valor);
+            }
+            System.out.printf("\nNo total %d valores eram primos.", primo);
+            System.out.println("\nMaior valor: " + maior);
+
+
+        } catch (InputMismatchException e) {
+            System.err.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static int getPrimo(int primo, int div, int valor) {
+        while (div < valor) {
+            if (valor % div == 0) {
+                System.out.println("O valor NÃO É primo.");
+                break;
+            }
+            div++;
+        }
+        if (div == valor) {
+            System.out.println("O valor É primo.");
+            primo++;
+        }
+        return primo;
     }
 }
