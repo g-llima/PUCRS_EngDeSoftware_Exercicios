@@ -11,7 +11,8 @@ public class Main {
         //ex2();
         //ex3();
         //ex4();
-        ex5();
+        //ex5();
+        ex6();
     }
 
     static void ex1() {
@@ -289,6 +290,47 @@ public class Main {
             }
             System.out.printf("\nNo total %d fizeram aniversário hoje.", fazendoAniverHoje);
 
+
+        } catch (InputMismatchException e) {
+            System.err.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    static void ex6() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            int primo = 0;
+
+            for (int i = 1; i <= 10; i++) {
+                System.out.printf("\n------ LOOP %d ------\n", i);
+
+                System.out.print("Valor: ");
+                int valor = sc.nextInt();
+
+                if (valor == 1) {
+                    System.out.println("O valor NÃO É primo.");
+                    continue;
+                }
+                if (valor <= 0) {
+                    System.err.println("Valor inválido");
+                    continue;
+                }
+
+                int div = 2;
+                while (div < valor) {
+                    if (valor % div == 0) {
+                        System.out.println("O valor NÃO É primo.");
+                        break;
+                    }
+                    div++;
+                }
+                if (div == valor) {
+                    System.out.println("O valor É primo.");
+                    primo++;
+                }
+            }
+            System.out.printf("\nNo total %d valores eram primos.", primo);
 
         } catch (InputMismatchException e) {
             System.err.println("Valor inválido");
