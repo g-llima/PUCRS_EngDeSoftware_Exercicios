@@ -367,6 +367,20 @@ public class Main {
             e.printStackTrace();
         }
     }
+    static void ex9() {
+        for (int i = 2; i <= 100; i++) {
+            int j = 2;
+            while (j < i) {
+                if (i % j == 0) {
+                    break;
+                 }
+                j++;
+            }
+            if (i == j) {
+                System.out.print(i + ", ");
+            }
+        }
+    }
 
     private static int getPrimo(int primo, int div, int valor) {
         while (div < valor) {
