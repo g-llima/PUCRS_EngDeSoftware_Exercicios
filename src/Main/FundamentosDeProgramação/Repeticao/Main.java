@@ -381,6 +381,21 @@ public class Main {
             }
         }
     }
+    static void ex10() {
+        int perfeitos = 0;
+        for (int i = 1; i <= 1000; i++) {
+            int divisores = 0;
+            for (int j = 1; j < i; j++) {
+                if (i % j == 0) {
+                    divisores += j;
+                }
+            }
+            if (divisores == i) {
+                perfeitos++;
+            }
+        }
+        System.out.printf("Em 1000 números naturais, existem %d números perfeitos.", perfeitos);
+    }
 
     private static int getPrimo(int primo, int div, int valor) {
         while (div < valor) {
