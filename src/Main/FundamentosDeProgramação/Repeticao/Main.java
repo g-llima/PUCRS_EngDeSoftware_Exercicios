@@ -10,7 +10,8 @@ public class Main {
         //ex1();
         //ex2();
         //ex3();
-        ex4();
+        //ex4();
+        ex5();
     }
 
     static void ex1() {
@@ -234,6 +235,60 @@ public class Main {
             System.out.println("\n----------| RESULTADO |----------");
             System.out.println("Pares: " + pares);
             System.out.println("Ímpares: " + impares);
+
+        } catch (InputMismatchException e) {
+            System.err.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    static void ex5() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            int fazendoAniverHoje = 0;
+
+            System.out.println("--------| DATA ATUAL |--------");
+
+            System.out.print("Mês: ");
+            int ma = sc.nextInt();
+
+            System.out.print("Dia: ");
+            int da = sc.nextInt();
+
+            if (ma > 12 || da > 30) { throw new InputMismatchException(); }
+
+            int dataHoje = (ma * 30) + da;
+
+            for (int i = 1; i <= 12; i++) {
+                System.out.printf("\n------ PESSOA %d ------\n", i);
+
+                System.out.print("Mês nascimento: ");
+                int mn = sc.nextInt(); // mn = mês de nascimento
+
+                System.out.print("Dia nascimento: ");
+                int dn = sc.nextInt(); // dn = dia de nascimento
+
+                if (mn > 12 || dn > 30) {
+                    System.err.println("Valor inválido.");
+                    continue;
+                }
+
+                int dataNascimento = (mn * 30) + dn;
+
+                if (dataHoje == dataNascimento) {
+                    System.out.println("Você está fazendo aniversário hoje! \uD83E\uDD73");
+                    fazendoAniverHoje++;
+                    continue;
+                }
+                if (dataHoje < dataNascimento) {
+                    System.out.println("Você já fez aniversário esse ano.");
+                    continue;
+                }
+
+                System.out.println("Você ainda não fez aniversário esse ano.");
+            }
+            System.out.printf("\nNo total %d fizeram aniversário hoje.", fazendoAniverHoje);
+
 
         } catch (InputMismatchException e) {
             System.err.println("Valor inválido");
