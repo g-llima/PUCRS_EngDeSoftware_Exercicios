@@ -8,8 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
         //ex1();
-       // ex2();
-        ex3();
+        //ex2();
+        //ex3();
+        ex4();
     }
 
     static void ex1() {
@@ -134,7 +135,7 @@ public class Main {
                 System.out.print("Dia: ");
                 int dia = sc.nextInt();
 
-                if (dia > 30) { System.err.println("Valor inválido"); continue; }
+                if (dia > 30) { System.err.println("Valor inválido"); sc.next(); continue; }
 
                 if (dia >= 21 && mes.equals("janeiro") || dia <= 19 && mes.equals("fevereiro")) { signo = "Aquário"; }
                 else if (dia >= 20 && mes.equals("fevereiro") || dia <= 20 && mes.equals("março")) { signo = "Peixes"; }
@@ -155,6 +156,84 @@ public class Main {
 
                 System.out.printf("\nSeu signo é: %s.\n", signo);
             }
+
+        } catch (InputMismatchException e) {
+            System.err.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    static void ex4() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            int pares = 0, impares = 0;
+
+            for (int i = 1; i <= 10; i++) {
+                String resultado = "";
+                int ultimoIndex = 0;
+                System.out.printf("\n------ LOOP %d ------\n", i);
+
+                System.out.print("Valor: ");
+                String valor = sc.next();
+
+                if ((Integer.parseInt(valor) > 100 || Integer.parseInt(valor) < 0)) {
+                    System.err.println("Valor inválido.");
+                    continue;
+                }
+
+                if (valor.length() == 2) {
+                    ultimoIndex = 1;
+                    switch (valor.charAt(0)) {
+                        case '2' -> resultado += "vinte";
+                        case '3' -> resultado += "trinta";
+                        case '4' -> resultado += "quarenta";
+                        case '5' -> resultado += "cinquenta";
+                        case '6' -> resultado += "sessenta";
+                        case '7' -> resultado += "setenta";
+                        case '8' -> resultado += "oitenta";
+                        case '9' -> resultado += "noventa";
+                    }
+                    if (valor.charAt(1) != '0') { resultado += " e "; }
+                }
+
+                switch (valor.charAt(ultimoIndex)) {
+                    case '1' -> resultado += "um";
+                    case '2' -> resultado += "dois";
+                    case '3' -> resultado += "três";
+                    case '4' -> resultado += "quatro";
+                    case '5' -> resultado += "cinco";
+                    case '6' -> resultado += "seis";
+                    case '7' -> resultado += "sete";
+                    case '8' -> resultado += "oito";
+                    case '9' -> resultado += "nove";
+                }
+
+                switch (valor) {
+                    case "0" -> resultado = "zero";
+                    case "100" -> resultado = "cem";
+                    case "10" -> resultado = "dez";
+                    case "11" -> resultado = "onze";
+                    case "12" -> resultado = "doze";
+                    case "13" -> resultado = "treze";
+                    case "14" -> resultado = "quatorze";
+                    case "15" -> resultado = "quinze";
+                    case "16" -> resultado = "dezesseis";
+                    case "17" -> resultado = "dezessete";
+                    case "18" -> resultado = "dezoito";
+                    case "19" -> resultado = "dezenove";
+                }
+
+                if (Integer.parseInt(valor) % 2 == 0) {
+                    pares++;
+                } else {
+                    impares++;
+                }
+
+                System.out.printf("%s = %s\n", valor, resultado);
+            }
+            System.out.println("\n----------| RESULTADO |----------");
+            System.out.println("Pares: " + pares);
+            System.out.println("Ímpares: " + impares);
 
         } catch (InputMismatchException e) {
             System.err.println("Valor inválido");
