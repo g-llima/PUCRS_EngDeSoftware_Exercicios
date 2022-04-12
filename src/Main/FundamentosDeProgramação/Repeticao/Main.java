@@ -12,7 +12,9 @@ public class Main {
         //ex3();
         //ex4();
         //ex5();
-        ex6();
+        //ex6();
+        //ex7();
+        ex8();
     }
 
     static void ex1() {
@@ -328,7 +330,7 @@ public class Main {
             e.printStackTrace();
         }
     }
-       static void ex7() {
+    static void ex7() {
         try {
             Scanner sc = new Scanner(System.in);
             int primo = 0;
@@ -366,6 +368,23 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    static void ex8() {
+        int primo = 0;
+        for (int i = 2; i < 1000; i++) {
+            int div = 2;
+
+            while (div < i) {
+                if (i % div == 0) {
+                    break;
+                }
+                div++;
+            }
+            if (div == i) {
+                primo++;
+            }
+        }
+        System.out.printf("Existem %d números primos nos primeiros 1000 números naturais.", primo);
     }
     static void ex9() {
         for (int i = 2; i <= 100; i++) {
