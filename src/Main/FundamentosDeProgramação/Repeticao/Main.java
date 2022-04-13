@@ -171,82 +171,132 @@ public class Main {
         }
     }
     static void ex4() {
-        try {
-            Scanner sc = new Scanner(System.in);
-            int pares = 0, impares = 0;
+        Scanner sc = new Scanner(System.in);
 
-            for (int i = 1; i <= 10; i++) {
-                String resultado = "";
-                int ultimoIndex = 0;
-                System.out.printf("\n------ LOOP %d ------\n", i);
+        for (int i = 0; i < 10; i++) {
+            
+            System.out.print("\nValor: ");
+            int val = sc.nextInt();
+            
+            while (val < 0 || val > 100) {
+                System.err.print("\nValor inválido. \nValor: ");
+                val = sc.nextInt();
+            }
 
-                System.out.print("Valor: ");
-                String valor = sc.next();
+            if (val / 100 == 1) { // CENTENA
+                
+                System.out.println("cem");
+                continue;
 
-                if ((Integer.parseInt(valor) > 100 || Integer.parseInt(valor) < 0)) {
-                    System.err.println("Valor inválido.");
+            }
+
+                int dezena = (val % 100) / 10;
+                int unidade = (val % 100) % 10;
+
+                if (val == 0) {
+                    System.out.println("zero");
                     continue;
                 }
 
-                if (valor.length() == 2) {
-                    ultimoIndex = 1;
-                    switch (valor.charAt(0)) {
-                        case '2' -> resultado += "vinte";
-                        case '3' -> resultado += "trinta";
-                        case '4' -> resultado += "quarenta";
-                        case '5' -> resultado += "cinquenta";
-                        case '6' -> resultado += "sessenta";
-                        case '7' -> resultado += "setenta";
-                        case '8' -> resultado += "oitenta";
-                        case '9' -> resultado += "noventa";
+                if (dezena == 1) {
+
+                    switch(unidade) {
+                        case 0:
+                            System.out.println("dez");
+                            break;
+                        case 1:
+                            System.out.println("onze");
+                            break;
+                        case 2:
+                            System.out.println("doze");
+                            break;
+                        case 3:
+                            System.out.println("treze");
+                            break;
+                        case 4:
+                            System.out.println("quatorze");
+                            break;
+                        case 5:
+                            System.out.println("quinze");
+                            break;
+                        case 6:
+                            System.out.println("dezesseis");
+                            break;
+                        case 7:
+                            System.out.println("dezessete");
+                            break;
+                        case 8:
+                            System.out.println("dezoito");
+                            break;
+                        case 9:
+                            System.out.println("dezenove");
+                            break;
                     }
-                    if (valor.charAt(1) != '0') { resultado += " e "; }
-                }
-
-                switch (valor.charAt(ultimoIndex)) {
-                    case '1' -> resultado += "um";
-                    case '2' -> resultado += "dois";
-                    case '3' -> resultado += "três";
-                    case '4' -> resultado += "quatro";
-                    case '5' -> resultado += "cinco";
-                    case '6' -> resultado += "seis";
-                    case '7' -> resultado += "sete";
-                    case '8' -> resultado += "oito";
-                    case '9' -> resultado += "nove";
-                }
-
-                switch (valor) {
-                    case "0" -> resultado = "zero";
-                    case "100" -> resultado = "cem";
-                    case "10" -> resultado = "dez";
-                    case "11" -> resultado = "onze";
-                    case "12" -> resultado = "doze";
-                    case "13" -> resultado = "treze";
-                    case "14" -> resultado = "quatorze";
-                    case "15" -> resultado = "quinze";
-                    case "16" -> resultado = "dezesseis";
-                    case "17" -> resultado = "dezessete";
-                    case "18" -> resultado = "dezoito";
-                    case "19" -> resultado = "dezenove";
-                }
-
-                if (Integer.parseInt(valor) % 2 == 0) {
-                    pares++;
                 } else {
-                    impares++;
+
+                    switch (dezena) {
+                        case 2:
+                            System.out.print("vinte");
+                            break;
+                        case 3:
+                            System.out.print("trinta");
+                            break;
+                        case 4:
+                            System.out.print("quarenta");
+                            break;
+                        case 5:
+                            System.out.print("cinquenta");
+                            break;
+                        case 6:
+                            System.out.print("sessenta");
+                            break;
+                        case 7:
+                            System.out.print("setenta");
+                            break;
+                        case 8:
+                            System.out.print("oitenta");
+                            break;
+                        case 9:
+                            System.out.print("noventa");
+                            break;
+                    }
+
+                    if (dezena != 0 && unidade != 0) System.out.print(" e ");
+
+                    switch (unidade) {
+                        case 1:
+                            System.out.print("um");
+                            break;
+                        case 2:
+                            System.out.print("dois");
+                            break;
+                        case 3:
+                            System.out.print("três");
+                            break;
+                        case 4:
+                            System.out.print("quatro");
+                            break;
+                        case 5:
+                            System.out.print("cinco");
+                            break;
+                        case 6:
+                            System.out.print("seis");
+                            break;
+                        case 7:
+                            System.out.print("sete");
+                            break;
+                        case 8:
+                            System.out.print("oito");
+                            break;
+                        case 9:
+                            System.out.print("nove");
+                            break;
+                        default:
+                            System.out.print("\n");
+                            break;
+                    }
                 }
-
-                System.out.printf("%s = %s\n", valor, resultado);
             }
-            System.out.println("\n----------| RESULTADO |----------");
-            System.out.println("Pares: " + pares);
-            System.out.println("Ímpares: " + impares);
-
-        } catch (InputMismatchException e) {
-            System.err.println("Valor inválido");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
     static void ex5() {
         try {
@@ -420,21 +470,23 @@ public class Main {
         System.out.printf("Em 1000 números naturais, existem %d números perfeitos.", perfeitos);
     }
     static void ex11() {
-        int count = 0;
+        int counter = 0, num = 1;
 
-        for (int i = 1; count < 10; i++) {
-            int div = 0;
-            for (int j = 1; j < i; j++) {
-                if (i % j == 0) {
-                    div += j;
+        while (counter < 10) {
+            int soma = 0;
+
+            for (int i = 1; i < num; i++) {
+                if (num % i == 0) {
+                    soma += i;
                 }
             }
-            if (div == i) {
-                System.out.println(i);
-                count++;
-            }
-        }
 
+            if (soma == num) {
+                System.out.println("É número perfeito: " + num);
+                counter++;
+            }
+            num++;
+        }
     }
 
     private static int getPrimo(int primo, int div, int valor) {
