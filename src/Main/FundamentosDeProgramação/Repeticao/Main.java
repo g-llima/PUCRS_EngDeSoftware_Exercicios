@@ -15,8 +15,9 @@ public class Main {
         //ex6();
         //ex7();
         //ex8();
-        ex9();
+        //ex9();
         //ex10();
+        ex11();
     }
 
     static void ex1() {
@@ -389,11 +390,9 @@ public class Main {
         System.out.printf("Existem %d números primos nos primeiros 1000 números naturais.", primo);
     }
     static void ex9() {
+        int count = 0, div;
 
-        int count = 0;
         for (int i = 2; count < 100; i++) {
-            int div;
-
             for (div = 2; div < i; div++){
                 if (i % div == 0){
                     break;
@@ -403,9 +402,7 @@ public class Main {
                 System.out.print(i + " ");
                 count++;
             }
-
         }
-
     }
     static void ex10() {
         int perfeitos = 0;
@@ -421,6 +418,23 @@ public class Main {
             }
         }
         System.out.printf("Em 1000 números naturais, existem %d números perfeitos.", perfeitos);
+    }
+    static void ex11() {
+        int count = 0;
+
+        for (int i = 1; count < 10; i++) {
+            int div = 0;
+            for (int j = 1; j < i; j++) {
+                if (i % j == 0) {
+                    div += j;
+                }
+            }
+            if (div == i) {
+                System.out.println(i);
+                count++;
+            }
+        }
+
     }
 
     private static int getPrimo(int primo, int div, int valor) {
