@@ -17,7 +17,8 @@ public class Main {
         //ex8();
         //ex9();
         //ex10();
-        ex11();
+       // ex11();
+        ex12();
     }
 
     static void ex1() {
@@ -436,6 +437,23 @@ public class Main {
         }
 
     }
+    static void ex12() {
+        int num1, num2, num3;
+
+        for (num1 = 1; num1 <= 10000; num1++) {
+            num2 = sum_of_divisors(num1);
+
+            if (num1 < num2) {
+
+                num3 = sum_of_divisors(num2);
+
+                if (num3 == num1) {
+                    System.out.printf("%d e %d \n", num1, num2);
+                }
+            }
+        }
+
+    }
 
     private static int getPrimo(int primo, int div, int valor) {
         while (div < valor) {
@@ -450,5 +468,14 @@ public class Main {
             primo++;
         }
         return primo;
+    }
+    private static int sum_of_divisors(int x) {
+        int sum = 0;
+        for (int i = 1; i < x; i++) {
+            if (x % i == 0) {
+                sum += i;
+            }
+        }
+        return sum;
     }
 }
