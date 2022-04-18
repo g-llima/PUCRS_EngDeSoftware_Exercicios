@@ -19,7 +19,8 @@ public class Main {
         //ex10();
         //ex11();
         //ex12();
-        ex13();
+        //ex13();
+        ex14();
     }
 
     static void ex1() {
@@ -519,6 +520,30 @@ public class Main {
             }
         }
         System.out.printf("Existem %d números perfeitos entre 100 e 10.000.", total);
+    }
+    static void ex14() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira um valor: ");
+            int valor1 = sc.nextInt();
+            int valor2, sum = valor1;
+
+            do {
+                System.out.print("Insira um valor: ");
+                valor2 = sc.nextInt();
+                sum += valor2;
+                System.out.println("Soma: " + sum);
+            } while (valor1 * 500 > sum);
+
+            System.out.println("Finalizado.");
+
+
+        } catch (InputMismatchException e) {
+            System.err.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static int getPrimo(int primo, int div, int valor) {
