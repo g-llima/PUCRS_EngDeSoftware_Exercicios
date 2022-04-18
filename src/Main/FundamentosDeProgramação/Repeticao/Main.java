@@ -493,6 +493,7 @@ public class Main {
         int num1, num2, num3;
 
         for (num1 = 1; num1 <= 10000; num1++) {
+
             num2 = sum_of_divisors(num1);
 
             if (num1 < num2) {
