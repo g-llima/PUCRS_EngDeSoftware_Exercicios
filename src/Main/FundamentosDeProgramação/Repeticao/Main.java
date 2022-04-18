@@ -20,7 +20,8 @@ public class Main {
         //ex11();
         //ex12();
         //ex13();
-        ex14();
+        //ex14();
+        ex15();
     }
 
     static void ex1() {
@@ -412,7 +413,6 @@ public class Main {
                 }
                 if (valor > maior) { maior = valor; }
 
-                div = 2;
                 primo = getPrimo(primo, div, valor);
             }
             System.out.printf("\nNo total %d valores eram primos.", primo);
@@ -538,6 +538,35 @@ public class Main {
 
             System.out.println("Finalizado.");
 
+
+        } catch (InputMismatchException e) {
+            System.err.println("Valor inválido");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    static void ex15() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            float valor;
+            int pares = 0, impares = 0, total = 0;
+
+            do {
+                System.out.print("Valor: ");
+                valor = sc.nextFloat();
+                total++;
+
+                if (valor == (int)valor) {
+                    if (valor % 2 == 0) {
+                        pares++;
+                    } else {
+                        impares++;
+                    }
+                }
+            } while (valor > 0);
+            System.out.printf("\nValores inseridos: %d.", total);
+            System.out.printf("\nValores pares: %d.", pares);
+            System.out.printf("\nValores impares: %d.", impares);
 
         } catch (InputMismatchException e) {
             System.err.println("Valor inválido");
