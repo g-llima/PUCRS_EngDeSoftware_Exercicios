@@ -17,8 +17,9 @@ public class Main {
         //ex8();
         //ex9();
         //ex10();
-       // ex11();
-        ex12();
+        //ex11();
+        //ex12();
+        ex13();
     }
 
     static void ex1() {
@@ -491,11 +492,8 @@ public class Main {
     }
     static void ex12() {
         int num1, num2, num3;
-
         for (num1 = 1; num1 <= 10000; num1++) {
-
             num2 = sum_of_divisors(num1);
-
             if (num1 < num2) {
 
                 num3 = sum_of_divisors(num2);
@@ -505,7 +503,22 @@ public class Main {
                 }
             }
         }
+    }
+    static void ex13() {
+        int num1, num2, num3, total = 0;
 
+        for (num1 = 100; num1 <= 100000; num1++) {
+            num2 = sum_of_divisors(num1);
+            if (num1 < num2) {
+
+                num3 = sum_of_divisors(num2);
+
+                if (num3 == num1) {
+                    total++;
+                }
+            }
+        }
+        System.out.printf("Existem %d números perfeitos entre 100 e 10.000.", total);
     }
 
     private static int getPrimo(int primo, int div, int valor) {
