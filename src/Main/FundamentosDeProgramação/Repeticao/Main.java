@@ -22,7 +22,8 @@ public class Main {
         //ex13();
         //ex14();
         //ex15();
-        ex16();
+        //ex16();
+        ex17();
     }
 
     static void ex1() {
@@ -586,6 +587,34 @@ public class Main {
             if (i == revNum) total ++;
         }
         System.out.printf("Existem %d valores palíndromos nos primeiros 2000 números.", total);
+    }
+    static void ex17() {
+        int counter = 0, j = 10;
+        while (counter < 10) {
+
+            for (int i = 10; i < j; i++) {
+
+                int revNum = 0, num = i;
+
+
+                while (num != 0) {
+                    revNum = (revNum * 10) + (num % 10);
+                    num = num / 10;
+                }
+
+
+                if (i == revNum) {
+                    System.out.println(revNum);
+                    j++;
+                    counter++;
+                }
+            }
+            j++;
+        }
+
+
+
+
     }
 
     private static int getPrimo(int primo, int div, int valor) {
