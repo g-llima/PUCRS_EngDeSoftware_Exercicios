@@ -9,7 +9,8 @@ public class Main {
         //ex1();
         //ex2();
         //ex3();
-        ex4();
+        //ex4();
+        ex5();
     }
 
     private static void ex1() {
@@ -88,6 +89,21 @@ public class Main {
 
             for (char ch : nome.toCharArray()) {
                 System.out.println(ch);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private static void ex5() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira o seu nome: ");
+            String nome = sc.nextLine();
+
+            for (int i = 1; i <= nome.length(); i++) {
+                System.out.println(nome.substring(0, i));
             }
 
         } catch (Exception e) {
