@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //ex1();
-        ex2();
+        //ex2();
+        ex3();
     }
 
     private static void ex1() {
@@ -51,6 +52,27 @@ public class Main {
             }
 
 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private static void ex3() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira o texto: ");
+            String texto = sc.nextLine();
+
+            int caracteres = 0, palavras = 0;
+
+            for (String s : texto.split(" ")) {
+                caracteres += s.length();
+                palavras++;
+            }
+
+            System.out.println("\nNúmero total de caracteres: " + caracteres);
+            System.out.println("Número total de palavras: " + palavras);
 
         } catch (Exception e) {
             e.printStackTrace();
