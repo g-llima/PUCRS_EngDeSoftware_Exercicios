@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ex1();
+        //ex1();
+        ex2();
     }
 
     private static void ex1() {
@@ -33,6 +34,23 @@ public class Main {
             }
 
             System.out.println("Número de dígitos: " + digitos);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private static void ex2() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira seu nome: ");
+            String nomeOriginal = sc.nextLine().toLowerCase().replaceAll(" e | do | da | dos | das | de | di | du ", " ");
+
+            for (String s : nomeOriginal.split(" ")) {
+                System.out.print(s.toUpperCase().charAt(0));
+            }
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
