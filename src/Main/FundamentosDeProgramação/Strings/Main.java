@@ -8,7 +8,8 @@ public class Main {
     public static void main(String[] args) {
         //ex1();
         //ex2();
-        ex3();
+        //ex3();
+        ex4();
     }
 
     private static void ex1() {
@@ -73,6 +74,21 @@ public class Main {
 
             System.out.println("\nNúmero total de caracteres: " + caracteres);
             System.out.println("Número total de palavras: " + palavras);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private static void ex4() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira o seu nome: ");
+            String nome = sc.nextLine();
+
+            for (char ch : nome.toCharArray()) {
+                System.out.println(ch);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
