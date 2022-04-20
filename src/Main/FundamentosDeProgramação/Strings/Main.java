@@ -11,7 +11,8 @@ public class Main {
         //ex3();
         //ex4();
         //ex5();
-        ex6();
+        //ex6();
+        ex7();
     }
 
     private static void ex1() {
@@ -134,6 +135,28 @@ public class Main {
             e.printStackTrace();
         }
 
+    }
+    private static void ex7() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.print("Insira uma frase ou palavra: ");
+            String textoOriginal = sc.nextLine().toLowerCase().replace(" ", "");
+            String textoInvertido = "";
+
+            for (int i = textoOriginal.length() - 1; i >= 0; i--) {
+                textoInvertido += textoOriginal.charAt(i);
+            }
+
+            if (textoOriginal.equals(textoInvertido)) {
+                System.out.println("O texto É palíndromo.");
+                return;
+            }
+            System.out.println("O texto NÃO É palíndromo.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
