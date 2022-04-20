@@ -10,7 +10,8 @@ public class Main {
         //ex2();
         //ex3();
         //ex4();
-        ex5();
+        //ex5();
+        ex6();
     }
 
     private static void ex1() {
@@ -109,6 +110,30 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private static void ex6() {
+        try {
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Insira uma data (DD/MM/AAAA): ");
+            String data = sc.nextLine();
+
+            if (data.charAt(2) != '/' || data.charAt(5) != '/') { throw new NumberFormatException(); }
+
+            int dia = Integer.parseInt(data.substring(0, 2));
+            int mes = Integer.parseInt(data.substring(3, 5));
+            int ano = Integer.parseInt(data.substring(6));
+
+            System.out.printf("\nDia: %d", dia);
+            System.out.printf("\nMês: %d", mes);
+            System.out.printf("\nAno: %d", ano);
+
+        } catch (NumberFormatException e) {
+            System.err.println("Data inválida.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
