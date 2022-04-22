@@ -12,7 +12,8 @@ public class Main {
         //ex4();
         //ex5();
         //ex6();
-        ex7();
+        //ex7();
+        ex8();
     }
 
     private static void ex1() {
@@ -153,6 +154,38 @@ public class Main {
                 return;
             }
             System.out.println("O texto NÃO É palíndromo.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private static void ex8() {
+        try {
+            Scanner sc = new Scanner(System.in);
+            String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            System.out.print("Insira uma palavra ou frase: ");
+            String texto = sc.nextLine().toUpperCase();
+
+            for (int i = 0; i < texto.length(); i++) {
+                char ch = texto.charAt(i);
+                int index;
+
+                if (ch == ' ') {
+                    System.out.print(" ");
+                    continue;
+                }
+
+                if (ch == 'X') { index = -3; }
+                else if (ch == 'Y') { index = -2; }
+                else if (ch == 'Z') { index = -1; }
+                else {
+                    index = letras.indexOf(ch);
+                }
+
+                System.out.print(letras.charAt(index + 3));
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
