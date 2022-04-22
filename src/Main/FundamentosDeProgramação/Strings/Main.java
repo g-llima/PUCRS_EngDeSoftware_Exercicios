@@ -49,14 +49,23 @@ public class Main {
         try {
             Scanner sc = new Scanner(System.in);
 
-            System.out.print("Insira seu nome: ");
-            String nomeOriginal = sc.nextLine().toLowerCase().replaceAll(" e | do | da | dos | das | de | di | du ", " ");
+            System.out.print("Nome: ");
+            String nome = sc.nextLine().replaceAll(" e | do | da | dos | das | de | di | du ", " ");
 
-            for (String s : nomeOriginal.split(" ")) {
-                System.out.print(s.toUpperCase().charAt(0));
+            System.out.print(nome.toUpperCase().charAt(0));
+
+            boolean novaPalavra = false;
+            for (int i = 1; i < nome.length(); i++) 
+            {
+                char letra = nome.toUpperCase().charAt(i);
+
+                if (letra == ' ') {
+                    novaPalavra = true;
+                } else if (novaPalavra) {
+                    System.out.print(letra);
+                    novaPalavra = false;
+                }
             }
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
