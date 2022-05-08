@@ -1,4 +1,4 @@
-package Main.FundamentosDeProgramação.Trabalho2;
+package Main.FundamentosDeProgramação.Trabalhos.Trabalho2;
 
 import java.util.Scanner;
 

@@ -1,8 +1,6 @@
 package Main.FundamentosDeProgramação.Repeticao;
 
-import java.util.InputMismatchException;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -23,7 +21,9 @@ public class Main {
         //ex14();
         //ex15();
         //ex16();
-        ex17();
+        //ex17();
+
+
     }
 
     static void ex1() {

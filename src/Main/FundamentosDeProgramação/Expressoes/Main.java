@@ -1,4 +1,4 @@
-package Main.Codes;
+package Main.FundamentosDeProgramação.Expressoes;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -6,7 +6,21 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Exercises {
+public class Main {
+
+    public static void main(String[] args) {
+
+        exercise1();
+//        exercise2();
+//        exercise3();
+//        exercise4();
+//        exercise5();
+//        exercise6();
+//        exercise7();
+//        exercise8();
+//        exercise9();
+//        exercise10();
+    }
 
     public static void exercise1() {
         try {
@@ -215,8 +229,8 @@ public class Exercises {
 
             // CHECK IF IT'S POSSIBLE TO MAKE A TRIANGLE
             if (lado1 > Math.abs(lado3 - lado2) && (lado1 < (lado2 + lado3)) ||
-                lado2 > Math.abs(lado3 - lado1) && (lado2 < (lado1 + lado3)) ||
-                lado3 > Math.abs(lado1 - lado2) && (lado3 < (lado2 + lado1)))
+                    lado2 > Math.abs(lado3 - lado1) && (lado2 < (lado1 + lado3)) ||
+                    lado3 > Math.abs(lado1 - lado2) && (lado3 < (lado2 + lado1)))
             {
                 // CHECK IF IT'S SCALENE
                 if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3)
@@ -270,7 +284,7 @@ public class Exercises {
             }
             System.out.println("NÃO POSSUI a mesma característica do número 3025.");
 
-         // BUG HANDLER
+            // BUG HANDLER
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido.");
         } catch (Exception e) {
