@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         //ex1();
         //ex2();
-        ex3();
+        //ex3();
+        ex4();
     }
 
     static void ex1() {
@@ -98,5 +99,31 @@ public class Main {
             soma += n;
         }
         System.out.println("\nSoma dos vetores: " + soma);
+    }
+    static void ex4() {
+        int[] vetor1 = new int[4];
+        int[] vetor2 = new int[4];
+        int resultado = 0;
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Vetor 1: ");
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Insira um valor: ");
+            vetor1[i] = sc.nextInt();
+        }
+
+        System.out.println("\nVetor 2: ");
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Insira um valor: ");
+            vetor2[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < 4; i++) {
+            resultado += (vetor1[i] * vetor2[i]);
+        }
+
+
+        System.out.println("\nSoma dos vetores: " + resultado);
     }
 }
