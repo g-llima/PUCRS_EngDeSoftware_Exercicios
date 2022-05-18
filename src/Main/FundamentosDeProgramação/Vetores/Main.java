@@ -1,5 +1,6 @@
 package Main.FundamentosDeProgramação.Vetores;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +10,8 @@ public class Main {
         //ex2();
         //ex3();
         //ex4();
-        ex5();
+        //ex5();
+        ex6();
     }
 
     static void ex1() {
@@ -160,5 +162,29 @@ public class Main {
         System.out.println("\nMenor valor do vetor1: " + min1);
         System.out.println("Menor valor do vetor2: " + min2);
         System.out.println("Média dos menores valores: " + (min1 + min2) / 2);
+    }
+    static void ex6() {
+        Aluno al = new Aluno("Gabriel", new float[]{9.2f, 1, 9});
+
+        System.out.println(al.getMedia());
+    }
+}
+
+class Aluno {
+
+    private String nome;
+    private float[] notas;
+
+    public Aluno(String nome, float[] notas) {
+        this.nome = nome;
+        if (notas.length == 3) this.notas = notas;
+    }
+
+    public float getMedia() {
+        float sum = 0;
+        for (float x : notas) {
+            sum += x;
+        }
+        return sum / 3;
     }
 }
