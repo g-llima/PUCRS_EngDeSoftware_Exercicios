@@ -192,6 +192,7 @@ class Desafio {
         System.out.println("Moda: " + getModa(arr));
     }
 
+
     private double calculaMedia (int[] arr) {
         double soma = 0;
         for (int x : arr)
