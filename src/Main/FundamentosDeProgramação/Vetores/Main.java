@@ -8,7 +8,8 @@ public class Main {
         //ex1();
         //ex2();
         //ex3();
-        ex4();
+        //ex4();
+        ex5();
     }
 
     static void ex1() {
@@ -125,5 +126,39 @@ public class Main {
 
 
         System.out.println("\nSoma dos vetores: " + resultado);
+    }
+    static void ex5() {
+        int[] vetor1 = new int[4];
+        int[] vetor2 = new int[4];
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Vetor 1: ");
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Insira um valor: ");
+            vetor1[i] = sc.nextInt();
+        }
+
+        System.out.println("\nVetor 2: ");
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Insira um valor: ");
+            vetor2[i] = sc.nextInt();
+        }
+        int min1 = vetor1[0];
+        int min2 = vetor2[0];
+
+        for (int n : vetor1) {
+            if (n < min1) min1 = n;
+            System.out.print(n + " ");
+        }
+        System.out.println(" ");
+        for (int n : vetor2) {
+            if (n < min2) min2 = n;
+            System.out.print(n + " ");
+        }
+
+        System.out.println("\nMenor valor do vetor1: " + min1);
+        System.out.println("Menor valor do vetor2: " + min2);
+        System.out.println("Média dos menores valores: " + (min1 + min2) / 2);
     }
 }
