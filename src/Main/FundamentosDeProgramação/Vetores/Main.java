@@ -1,17 +1,21 @@
 package Main.FundamentosDeProgramação.Vetores;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        Desafio desafio = new Desafio();
+        desafio.run();
+
         //ex1();
         //ex2();
         //ex3();
         //ex4();
         //ex5();
-        ex6();
+        //ex6();
     }
 
     static void ex1() {
@@ -166,10 +170,70 @@ public class Main {
     static void ex6() {
         Aluno al = new Aluno("Gabriel", new float[]{9.2f, 1, 9});
 
-        System.out.println(al.getMedia());
     }
 }
+class Desafio {
 
+    public void run() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite a quantidade de números: ");
+        int tam = sc.nextInt(), j = 1;
+        int[] arr = new int[tam];
+
+        for (int i = 0; i < tam; i++)
+            arr[i] = sc.nextInt();
+
+        for(int x : arr) { System.out.println(j + ": " + x); j++; }
+        System.out.println("Números pares: " + contaPares(arr));
+        System.out.println("Somatório dos números primos: " + somatorioPrimos(arr));
+        System.out.println("Média dos números: " + calculaMedia(arr));
+        System.out.println("Moda: " + getModa(arr));
+    }
+
+    private double calculaMedia (int[] arr) {
+        double soma = 0;
+        for (int x : arr)
+            soma += x;
+        return soma / arr.length;
+    }
+    private int contaPares(int[] arr) {
+        int pares = 0;
+        for (int x : arr) {
+            if (x % 2 == 0) pares++;
+        }
+        return pares;
+    }
+    private int somatorioPrimos(int[] arr) {
+        int soma = 0;
+        for (int x : arr)
+            if (isPrimo(x)) soma += x;
+
+        return soma;
+    }
+    private int getModa(int[] arr) {
+        int modaContador = 0;
+        int indiceModa = -1;
+        for (int i = 0; i < arr.length - 1; i++) {
+            int contador = 1;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    contador++;
+                    if (contador > modaContador) {
+                        modaContador = contador;
+                        indiceModa = i;
+                    }
+                }
+            }
+        }
+        return indiceModa == -1 ? -1 : arr[indiceModa];
+    }
+    private boolean isPrimo(int x) {
+        for (int i = 2; i < x; i++) {
+            if (x % i == 0) return false;
+        }
+        return true;
+    }
+}
 class Aluno {
 
     private String nome;
@@ -179,12 +243,5 @@ class Aluno {
         this.nome = nome;
         if (notas.length == 3) this.notas = notas;
     }
-
-    public float getMedia() {
-        float sum = 0;
-        for (float x : notas) {
-            sum += x;
-        }
-        return sum / 3;
-    }
 }
+
