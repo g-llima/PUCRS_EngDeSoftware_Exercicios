@@ -48,6 +48,7 @@ public class Cadastro {
                     editarSalarioFuncionario(funcionarios);
                     break;
                 case 5:
+                    funcionarioComMaiorSalario(funcionarios);
                     break;
                 case 6:
                     break;
@@ -142,5 +143,23 @@ public class Cadastro {
 
         funcionario.setRemuneracaoPorHora(novoRemuneracaoPorHora);
         System.out.print("Salário de " + funcionario.getNome() + " modificado.\n");
+    }
+    private static void funcionarioComMaiorSalario(List<Funcionario> arr) {
+        if (arr.size() == 0) {
+            System.err.println("\nNenhum funcionário cadastrado.\n");
+            return;
+        }
+
+        float maior = arr.get(0).getSalario();
+        Funcionario funcionarioMaior = arr.get(0);
+
+        for (Funcionario f : arr) {
+            if (f.getSalario() > maior) {
+                maior = f.getSalario();
+                funcionarioMaior = f;
+            }
+        }
+        System.out.println("\n-----------| FUNCIONÁRIO COM MAIOR SALÁRIO |-----------\n");
+        System.out.println(funcionarioMaior.toString());
     }
 }
