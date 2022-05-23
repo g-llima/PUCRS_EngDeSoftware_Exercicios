@@ -1,10 +1,7 @@
 package Main.FundamentosDeProgramação.Trabalhos.Trabalho3;
 
-import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Cadastro {
@@ -74,10 +71,10 @@ public class Cadastro {
         System.out.print("CPF do funcionário: ");
         String cpf = sc.nextLine();
 
-        System.out.print("Horas trabalhadas: ");
+        System.out.print("Remuneração por hora: ");
         float horasTrabalhadas = Float.parseFloat(sc.nextLine());
 
-        System.out.print("Carca horaria semanal: ");
+        System.out.print("Carga horaria semanal: ");
         float cargaHorariaSemanal = Float.parseFloat(sc.nextLine());
 
         System.out.print("Tem filhos? (1 = sim; 2 = não) ");
@@ -91,7 +88,7 @@ public class Cadastro {
         for (Funcionario f : arr) {
             System.out.println(f);
         }
-        System.out.println("\n\n");
+        System.out.println("\n");
     }
     private static void removerFuncionario(List<Funcionario> arr) {
         System.out.println("\n-----------| REMOVER FUNCIONÁRIO |-----------\n");
@@ -139,11 +136,11 @@ public class Cadastro {
             return;
         }
 
-        System.out.print("Insira o novo salário: (por hora)");
+        System.out.print("Insira o novo salário: (por hora) ");
         float novoRemuneracaoPorHora = Float.parseFloat(sc.nextLine());
 
         funcionario.setRemuneracaoPorHora(novoRemuneracaoPorHora);
-        System.out.print("Salário de " + funcionario.getNome() + " modificado.\n");
+        System.out.print("\nSalário de " + funcionario.getNome() + " modificado.\n");
     }
     private static void funcionarioComMaiorSalario(List<Funcionario> arr) {
         if (arr.size() == 0) {
