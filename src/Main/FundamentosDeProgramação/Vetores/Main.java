@@ -168,11 +168,12 @@ public class Main {
         System.out.println("Média dos menores valores: " + (min1 + min2) / 2);
     }
     static void ex6() {
-        Aluno al1 = new Aluno("Gabriel", 10, 9, 8);
-        Aluno al2 = new Aluno("Ada", 0, 5, 3);
-        Aluno al3 = new Aluno("Fernanda", 7, 9, 7);
+        Aluno[] grupo = new Aluno[4];
+        grupo[0] = new Aluno("Gabriel", 10, 9, 8);
+        grupo[1] = new Aluno("Ada", 0, 5, 3);
+        grupo[2] = new Aluno("Fernanda", 7, 9, 7);
 
-        Aplicacao ap = new Aplicacao(al1, al2, al3);
+        Aplicacao ap = new Aplicacao(grupo);
         System.out.println("Maior nota 1: " + ap.maiorNota1());
         System.out.println("Menor nota 3: " + ap.menorNota3());
         System.out.printf("Média das médias: %.2f\n", ap.getMediaDasMedias());
@@ -242,8 +243,6 @@ class Desafio {
         return true;
     }
 }
-
-
 class Aluno {
 
     private String nome;
@@ -254,6 +253,12 @@ class Aluno {
         this.n1 = n1;
         this.n2 = n2;
         this.n3 = n3;
+    }
+    public Aluno(String nome) {
+        this.nome = nome;
+        this.n1 = 0;
+        this.n2 = 0;
+        this.n3 = 0;
     }
 
     public float getMedia() {
@@ -276,14 +281,13 @@ class Aluno {
         return this.n3;
     }
 }
+
 class Aplicacao {
 
-    private Aluno[] grupo = new Aluno[4];
+    private Aluno[] grupo;
 
-    public Aplicacao(Aluno al1, Aluno al2, Aluno al3){
-        grupo[0] = al1;
-        grupo[1] = al2;
-        grupo[2] = al3;
+    public Aplicacao(Aluno[] grupo){
+        this.grupo = grupo;
         grupo[3] = inserirAluno();
         mostrarAlunos(grupo);
     }
