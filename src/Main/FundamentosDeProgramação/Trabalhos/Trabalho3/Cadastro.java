@@ -51,6 +51,7 @@ public class Cadastro {
                     funcionarioComMaiorSalario(funcionarios);
                     break;
                 case 6:
+                    percentualDeFuncionariosFilhos(funcionarios);
                     break;
                 case 7:
                     isLooping = false;
@@ -161,5 +162,11 @@ public class Cadastro {
         }
         System.out.println("\n-----------| FUNCIONÁRIO COM MAIOR SALÁRIO |-----------\n");
         System.out.println(funcionarioMaior.toString());
+    }
+    private static void percentualDeFuncionariosFilhos(List<Funcionario> arr) {
+        int total = arr.size();
+        float comFilhos = (int) arr.stream().filter(Funcionario::getTemFilhos).count();
+        System.out.println("\n-----------| PERCENTUAL DE FUNCIONÁRIOS COM FILHOS |-----------\n");
+        System.out.printf("%.2f %%\n", (comFilhos / total) * 100);
     }
 }

@@ -51,7 +51,7 @@ class Funcionario {
         this.cargaHorariaSemanal = cargaHorariaSemanal > 44 ? 44 : cargaHorariaSemanal;
     }
 
-    public boolean isTemFilhos() {
+    public boolean getTemFilhos() {
         return temFilhos;
     }
 
