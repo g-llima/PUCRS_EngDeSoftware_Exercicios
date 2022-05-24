@@ -1,25 +1,26 @@
 package Main.FundamentosDeProgramação.Trabalhos.Trabalho3;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Cadastro {
     public static void main(String[] args) {
 
-        List<Funcionario> funcionarios = new ArrayList<>();
-        funcionarios.add(new Funcionario("Adã", "66572549214", 10.5f, 44, false));
-        funcionarios.add(new Funcionario("Gabriel", "78598426884", 4, 44, true));
-        funcionarios.add(new Funcionario("Romero Brito", "89547836984", 11, 30, true));
-        funcionarios.add(new Funcionario("Benjamin", "25468459870", 44, 50, true));
-        funcionarios.add(new Funcionario("Periclão", "12345678991", 1, 35, false));
+        Funcionario[] funcionarios = new Funcionario[10];
+        funcionarios[0] = new Funcionario("Adã", "66572549214", 10.5f, 44, false);
+        funcionarios[1] = new Funcionario("Gabriel", "78598426884", 4, 44, true);
+        funcionarios[2] = new Funcionario("Romero Brito", "89547836984", 11, 30, true);
+        funcionarios[3] = new Funcionario("Benjamin", "25468459870", 44, 50, true);
+        funcionarios[4] = new Funcionario("Periclão", "12345678991", 1, 35, false);
 
         boolean isLooping = true;
         do {
             Scanner sc = new Scanner(System.in);
             System.out.println(
                     """
-                    
+
                     -----------| MENU |-----------
                     1. Cadastrar novo funcionario
                     2. Listar todos os funcionários cadastrados
@@ -61,7 +62,19 @@ public class Cadastro {
         } while (isLooping);
     }
 
-    private static void cadastrarFuncionario(List<Funcionario> arr) {
+    private static void cadastrarFuncionario(Funcionario[] arr) {
+        int index = arr.length;
+
+        for (int i = 0; i < arr.length; i++)
+            if (arr[i] == null) {
+                index = i;
+                break;
+            }
+        if (index == arr.length) {
+            System.err.println("\nNúmero máximo de funcionários registrados.\n");
+            return;
+        }
+
         System.out.println("\n-----------| CADASTRAR FUNCIONÁRIO |-----------\n");
         Scanner sc = new Scanner(System.in);
 
@@ -80,9 +93,9 @@ public class Cadastro {
         System.out.print("Tem filhos? (1 = sim; 2 = não) ");
         boolean temFilhos = Integer.parseInt(sc.nextLine()) == 1;
 
-        arr.add(new Funcionario(nome, cpf, horasTrabalhadas, cargaHorariaSemanal, temFilhos));
+        arr[index] = new Funcionario(nome, cpf, horasTrabalhadas, cargaHorariaSemanal, temFilhos);
     }
-    private static void listarFuncionarios(List<Funcionario> arr) {
+    private static void listarFuncionarios(Funcionario[] arr) {
         System.out.println("\n-----------| LISTA DOS FUNCIONÁRIOS |-----------\n");
 
         for (Funcionario f : arr) {
@@ -90,46 +103,62 @@ public class Cadastro {
         }
         System.out.println("\n");
     }
-    private static void removerFuncionario(List<Funcionario> arr) {
+    private static void removerFuncionario(Funcionario[] arr) {
         System.out.println("\n-----------| REMOVER FUNCIONÁRIO |-----------\n");
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Insira o CPF: ");
         String cpfUsuario = sc.nextLine();
 
-        Funcionario funcionario = arr.stream().filter(x -> cpfUsuario.equals(x.getCpf())).findAny().orElse(null);
+        int index = 0;
+        Funcionario funcionario = null;
+
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != null && arr[i].getCpf().equals(cpfUsuario)) {
+                funcionario = arr[i];
+                index = i;
+                break;
+            }
+        }
 
         if (funcionario == null) {
-            System.err.println("\nFuncionário não encontrado.\n");
+            System.err.println("Funcionário não encontrado.\n");
             return;
         }
 
-        boolean isLooping = true;
-
         do {
-            System.out.println("\nVocê quer realmente remover o seguinte funcionário? (s,n)");
+            System.err.println("\nVocê quer realmente remover o seguinte funcionário? (s,n)\n");
             System.out.println(funcionario);
 
             char respostaUsuario = sc.nextLine().toLowerCase().charAt(0);
             if (respostaUsuario == 's') {
-                arr.remove(funcionario);
-                System.out.println("Funcionário removido.");
-                isLooping = false;
+
+                arr[index] = null;
+                for (int i = index; i < arr.length - 1; i++)
+                    arr[i] = arr[i + 1];
+
+                System.out.println("\nFuncionário removido.");
                 return;
             }
             if (respostaUsuario == 'n') {
-                System.out.println("Voltando...");
-                isLooping = false;
+                System.out.println("\nVoltando...");
                 return;
             }
-        } while (isLooping);
-    }
-    private static void editarSalarioFuncionario(List<Funcionario> arr) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Insira o CPF:");
-        String cpfUsuario = sc.nextLine();
 
-        Funcionario funcionario = arr.stream().filter(x -> cpfUsuario.equals(x.getCpf())).findAny().orElse(null);
+        } while (true);
+    }
+    private static void editarSalarioFuncionario(Funcionario[] arr) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Insira o CPF: ");
+
+        String cpfUsuario = sc.nextLine();
+        Funcionario funcionario = null;
+
+        for (Funcionario f : arr) {
+            if (f != null && f.getCpf().equals(cpfUsuario))
+                funcionario = f;
+        }
 
         if (funcionario == null) {
             System.err.println("\nFuncionário não encontrado.\n");
@@ -142,27 +171,35 @@ public class Cadastro {
         funcionario.setRemuneracaoPorHora(novoRemuneracaoPorHora);
         System.out.print("\nSalário de " + funcionario.getNome() + " modificado.\n");
     }
-    private static void funcionarioComMaiorSalario(List<Funcionario> arr) {
-        if (arr.size() == 0) {
-            System.err.println("\nNenhum funcionário cadastrado.\n");
+    private static void funcionarioComMaiorSalario(Funcionario[] arr) {
+
+        Funcionario funcionarioMaior = arr[0];
+
+        if (funcionarioMaior == null) {
+            System.err.println("\nNenhum funcionário cadastrado.");
             return;
         }
 
-        float maior = arr.get(0).getSalario();
-        Funcionario funcionarioMaior = arr.get(0);
-
         for (Funcionario f : arr) {
-            if (f.getSalario() > maior) {
-                maior = f.getSalario();
+            if (f != null && f.getSalario() > funcionarioMaior.getSalario()) {
                 funcionarioMaior = f;
             }
         }
+
         System.out.println("\n-----------| FUNCIONÁRIO COM MAIOR SALÁRIO |-----------\n");
-        System.out.println(funcionarioMaior.toString());
+        System.out.println(funcionarioMaior);
     }
-    private static void percentualDeFuncionariosFilhos(List<Funcionario> arr) {
-        int total = arr.size();
-        float comFilhos = (int) arr.stream().filter(Funcionario::getTemFilhos).count();
+    private static void percentualDeFuncionariosFilhos(Funcionario[] arr) {
+        float total = 0, comFilhos = 0;
+
+        for (Funcionario f : arr) {
+            if (f != null) {
+                total++;
+                if (f.getTemFilhos()) comFilhos++;
+            }
+
+        }
+
         System.out.println("\n-----------| PERCENTUAL DE FUNCIONÁRIOS COM FILHOS |-----------\n");
         System.out.printf("%.2f %%\n", (comFilhos / total) * 100);
     }
