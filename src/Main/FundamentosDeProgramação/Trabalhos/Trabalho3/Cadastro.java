@@ -1,5 +1,6 @@
 package Main.FundamentosDeProgramação.Trabalhos.Trabalho3;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Cadastro {
@@ -54,6 +55,7 @@ public class Cadastro {
                 index = i;
                 break;
             }
+
         if (index == arr.length) {
             System.err.println("\nNúmero máximo de funcionários registrados.\n");
             return;
@@ -68,14 +70,23 @@ public class Cadastro {
         System.out.print("CPF do funcionário: ");
         String cpf = sc.nextLine();
 
-        System.out.print("Remuneração por hora: ");
-        float horasTrabalhadas = Float.parseFloat(sc.nextLine());
+        float horasTrabalhadas, cargaHorariaSemanal;
+        boolean temFilhos;
 
-        System.out.print("Carga horaria semanal: ");
-        float cargaHorariaSemanal = Float.parseFloat(sc.nextLine());
+        try {
+            System.out.print("Remuneração por hora: ");
+            horasTrabalhadas = Float.parseFloat(sc.nextLine());
 
-        System.out.print("Tem filhos? (1 = sim; 2 = não) ");
-        boolean temFilhos = Integer.parseInt(sc.nextLine()) == 1;
+            System.out.print("Carga horaria semanal: ");
+            cargaHorariaSemanal = Float.parseFloat(sc.nextLine());
+
+            System.out.print("Tem filhos? (1 = sim; 2 = não) ");
+            temFilhos = Integer.parseInt(sc.nextLine()) == 1;
+        } catch (Exception e) {
+            System.err.println("Valor inválido.\n");
+            return;
+        }
+
 
         arr[index] = new Funcionario(nome, cpf, horasTrabalhadas, cargaHorariaSemanal, temFilhos);
     }
