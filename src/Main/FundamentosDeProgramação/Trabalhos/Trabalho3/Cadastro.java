@@ -1,8 +1,5 @@
 package Main.FundamentosDeProgramação.Trabalhos.Trabalho3;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Cadastro {
@@ -33,30 +30,17 @@ public class Cadastro {
 
             int userInput = Integer.parseInt(sc.nextLine());
             switch (userInput) {
-                case 1:
-                    cadastrarFuncionario(funcionarios);
-                    break;
-                case 2:
-                    listarFuncionarios(funcionarios);
-                    break;
-                case 3:
-                    removerFuncionario(funcionarios);
-                    break;
-                case 4:
-                    editarSalarioFuncionario(funcionarios);
-                    break;
-                case 5:
-                    funcionarioComMaiorSalario(funcionarios);
-                    break;
-                case 6:
-                    percentualDeFuncionariosFilhos(funcionarios);
-                    break;
-                case 7:
+                case 1 -> cadastrarFuncionario(funcionarios);
+                case 2 -> listarFuncionarios(funcionarios);
+                case 3 -> removerFuncionario(funcionarios);
+                case 4 -> editarSalarioFuncionario(funcionarios);
+                case 5 -> funcionarioComMaiorSalario(funcionarios);
+                case 6 -> percentualDeFuncionariosFilhos(funcionarios);
+                case 7 -> {
                     isLooping = false;
                     System.out.println("\nSaindo do programa...");
-                    break;
-                default:
-                    System.out.println("Valor inválido.");
+                }
+                default -> System.out.println("Valor inválido.");
             }
 
         } while (isLooping);
@@ -98,9 +82,9 @@ public class Cadastro {
     private static void listarFuncionarios(Funcionario[] arr) {
         System.out.println("\n-----------| LISTA DOS FUNCIONÁRIOS |-----------\n");
 
-        for (Funcionario f : arr) {
+        for (Funcionario f : arr)
             System.out.println(f);
-        }
+
         System.out.println("\n");
     }
     private static void removerFuncionario(Funcionario[] arr) {
@@ -155,10 +139,10 @@ public class Cadastro {
         String cpfUsuario = sc.nextLine();
         Funcionario funcionario = null;
 
-        for (Funcionario f : arr) {
+        for (Funcionario f : arr)
             if (f != null && f.getCpf().equals(cpfUsuario))
                 funcionario = f;
-        }
+
 
         if (funcionario == null) {
             System.err.println("\nFuncionário não encontrado.\n");
@@ -180,11 +164,9 @@ public class Cadastro {
             return;
         }
 
-        for (Funcionario f : arr) {
-            if (f != null && f.getSalario() > funcionarioMaior.getSalario()) {
+        for (Funcionario f : arr)
+            if (f != null && f.getSalario() > funcionarioMaior.getSalario())
                 funcionarioMaior = f;
-            }
-        }
 
         System.out.println("\n-----------| FUNCIONÁRIO COM MAIOR SALÁRIO |-----------\n");
         System.out.println(funcionarioMaior);
@@ -192,13 +174,11 @@ public class Cadastro {
     private static void percentualDeFuncionariosFilhos(Funcionario[] arr) {
         float total = 0, comFilhos = 0;
 
-        for (Funcionario f : arr) {
+        for (Funcionario f : arr)
             if (f != null) {
                 total++;
                 if (f.getTemFilhos()) comFilhos++;
             }
-
-        }
 
         System.out.println("\n-----------| PERCENTUAL DE FUNCIONÁRIOS COM FILHOS |-----------\n");
         System.out.printf("%.2f %%\n", (comFilhos / total) * 100);
