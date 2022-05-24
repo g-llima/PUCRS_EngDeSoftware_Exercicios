@@ -82,8 +82,12 @@ public class Cadastro {
     private static void listarFuncionarios(Funcionario[] arr) {
         System.out.println("\n-----------| LISTA DOS FUNCIONÁRIOS |-----------\n");
 
-        for (Funcionario f : arr)
+        for (Funcionario f : arr) {
+            if (f == null) break;
+
             System.out.println(f);
+        }
+
 
         System.out.println("\n");
     }
