@@ -164,8 +164,16 @@ public class Cadastro {
             return;
         }
 
+        float novoRemuneracaoPorHora;
+
         System.out.print("Insira o novo salário: (por hora) ");
-        float novoRemuneracaoPorHora = Float.parseFloat(sc.nextLine());
+        try {
+            novoRemuneracaoPorHora = Float.parseFloat(sc.nextLine());
+        } catch (Exception e) {
+            System.err.println("Valor inválido.\n");
+            return;
+        }
+
 
         funcionario.setRemuneracaoPorHora(novoRemuneracaoPorHora);
         System.out.print("\nSalário de " + funcionario.getNome() + " modificado.\n");
