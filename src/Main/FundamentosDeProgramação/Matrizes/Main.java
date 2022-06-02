@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         //ex1();
         //ex2(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
-        System.out.println(ex3(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+        //System.out.println(ex3(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+        System.out.println(ex4(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 2));
     }
 
     static void ex1() {
@@ -46,5 +47,14 @@ public class Main {
             }
         }
         return maior;
+    }
+    static float ex4(int[][] m, int pos) {
+        float soma = 0, count = 0;
+
+        for (int i = 0; i < m[pos].length; i++) {
+            soma += m[pos][i];
+            count++;
+        }
+        return soma / count;
     }
 }
