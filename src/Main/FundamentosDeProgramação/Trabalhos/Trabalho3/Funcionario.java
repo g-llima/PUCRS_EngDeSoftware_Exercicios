@@ -30,10 +30,9 @@ class Funcionario {
         this.cpf = cpf;
     }
 
-    public float getReaisPorHoraTrabalhada() {
+    public float getRemuneracaoPorHora() {
         return remuneracaoPorHora;
     }
-
     public void setRemuneracaoPorHora(float reaisPorHoraTrabalhada) {
         this.remuneracaoPorHora = reaisPorHoraTrabalhada;
     }
@@ -41,18 +40,17 @@ class Funcionario {
     public float getCargaHorariaSemanal() {
         return cargaHorariaSemanal;
     }
-    public float  getSalario() {
-        return remuneracaoPorHora * cargaHorariaSemanal * 4;
-    }
-
     public void setCargaHorariaSemanal(float cargaHorariaSemanal) {
         this.cargaHorariaSemanal = cargaHorariaSemanal > 44 ? 44 : cargaHorariaSemanal;
+    }
+
+    public float  getSalario() {
+        return remuneracaoPorHora * cargaHorariaSemanal * 4;
     }
 
     public boolean getTemFilhos() {
         return temFilhos;
     }
-
     public void setTemFilhos(boolean temFilhos) {
         this.temFilhos = temFilhos;
     }

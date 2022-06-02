@@ -1,6 +1,5 @@
 package Main.FundamentosDeProgramação.Trabalhos.Trabalho3;
 
-import java.text.ParseException;
 import java.util.Scanner;
 
 public class Cadastro {
@@ -29,7 +28,13 @@ public class Cadastro {
                     7. Sair do programa.
                     """);
 
-            int userInput = Integer.parseInt(sc.nextLine());
+            int userInput;
+            try {
+                userInput = Integer.parseInt(sc.nextLine());
+            } catch (Exception e) {
+                userInput = 0;
+            }
+
             switch (userInput) {
                 case 1 -> cadastrarFuncionario(funcionarios);
                 case 2 -> listarFuncionarios(funcionarios);
@@ -41,9 +46,8 @@ public class Cadastro {
                     isLooping = false;
                     System.out.println("\nSaindo do programa...");
                 }
-                default -> System.out.println("Valor inválido.");
+                default -> System.err.println("Valor inválido.");
             }
-
         } while (isLooping);
     }
 
