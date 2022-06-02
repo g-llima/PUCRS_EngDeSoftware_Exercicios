@@ -6,7 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         //ex1();
-        ex2(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        //ex2(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        System.out.println(ex3(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
     }
 
     static void ex1() {
@@ -35,5 +36,15 @@ public class Main {
             }
             System.out.println();
         }
+    }
+    static int ex3(int[][] m) {
+        int maior = m[0][0];
+
+        for (int[] linhas : m) {
+            for (int valor : linhas) {
+                if (valor > maior) maior = valor;
+            }
+        }
+        return maior;
     }
 }
