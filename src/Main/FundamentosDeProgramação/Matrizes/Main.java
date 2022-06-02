@@ -8,7 +8,8 @@ public class Main {
         //ex1();
         //ex2(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //System.out.println(ex3(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
-        System.out.println(ex4(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 2));
+        //System.out.println(ex4(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 2));
+        ex5(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
     }
 
     static void ex1() {
@@ -56,5 +57,30 @@ public class Main {
             count++;
         }
         return soma / count;
+    }
+    static void ex5(int[][] m) {
+
+        System.out.println("\nANTES\n");
+        for (int[] linhas : m) {
+            for (int valor : linhas) {
+                System.out.print(valor + " ");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[i].length; j++) {
+                m[i][j] = m[i][j] % 2 == 0 ? 1 : -1;
+            }
+        }
+
+        System.out.println("\nDEPOIS\n");
+
+        for (int[] linhas : m) {
+            for (int valor : linhas) {
+                System.out.print(valor + " ");
+            }
+            System.out.println();
+        }
     }
 }
