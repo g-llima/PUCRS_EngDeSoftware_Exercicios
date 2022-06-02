@@ -63,6 +63,10 @@ public class Main {
         System.out.println("\nANTES\n");
         for (int[] linhas : m) {
             for (int valor : linhas) {
+                if (valor < 0) {
+                    System.err.println("\nA matriz nao pode conter valores negativos.");
+                    return;
+                }
                 System.out.print(valor + " ");
             }
             System.out.println();
