@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ex1();
+        //ex1();
+        ex2(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
     }
 
     static void ex1() {
@@ -23,6 +24,14 @@ public class Main {
         for (int[] linha : matriz) {
             for (int valor : linha) {
                 System.out.printf("%d ", valor);
+            }
+            System.out.println();
+        }
+    }
+    static void ex2(int[][] m) {
+        for (int[] linhas : m) {
+            for (int valor : linhas) {
+                System.out.print(valor + " ");
             }
             System.out.println();
         }
