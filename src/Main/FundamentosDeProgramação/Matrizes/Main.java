@@ -9,7 +9,8 @@ public class Main {
         //ex2(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //System.out.println(ex3(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
         //System.out.println(ex4(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 2));
-        ex5(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        //ex5(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        somarMatrizes(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
     }
 
     static void ex1() {
@@ -83,6 +84,21 @@ public class Main {
         for (int[] linhas : m) {
             for (int valor : linhas) {
                 System.out.print(valor + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void somarMatrizes(int[][] m1, int[][] m2) {
+        int[][] m3 = new int[m1.length][m1[0].length];
+        for (int i = 0; i < m1.length; i++) {
+            for (int j = 0; j < m1[i].length; j++) {
+                m3[i][j] = m1[i][j] + m2[i][j];
+            }
+        }
+        for (int[] linhas : m3) {
+            for (int x : linhas) {
+                System.out.print(x + " ");
             }
             System.out.println();
         }
