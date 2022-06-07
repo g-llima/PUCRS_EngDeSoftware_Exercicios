@@ -14,7 +14,7 @@ public class Main {
 
 
         //somarMatrizes(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
-        subtrairMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        //subtrairMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
     }
 
     static void ex1() {
