@@ -13,12 +13,12 @@ public class Main {
 
 
 
-        //somarMatrizes(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        somarMatrizes(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //subtrairMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //multiplicarMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //linhaParaColuna(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}});
         //System.out.println(raizesIguais(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
-        multiplicarMatrizPorReal(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, 2);
+        //multiplicarMatrizPorReal(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, 2);
     }
 
     static void ex1() {
@@ -110,13 +110,12 @@ public class Main {
         return true;
     }
     static void somarMatrizes(int[][] m1, int[][] m2) {
-        int[][] m3 = new int[m1.length][m1[0].length];
         for (int i = 0; i < m1.length; i++) {
             for (int j = 0; j < m1[i].length; j++) {
-                m3[i][j] = m1[i][j] + m2[i][j];
+                m1[i][j] += m2[i][j];
             }
         }
-        for (int[] linhas : m3) {
+        for (int[] linhas : m1) {
             for (int x : linhas) {
                 System.out.print(x + " ");
             }
