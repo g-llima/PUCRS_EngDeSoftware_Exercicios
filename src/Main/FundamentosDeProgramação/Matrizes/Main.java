@@ -117,7 +117,7 @@ public class Main {
 
         for (int[] linhas : m3) {
             for (int x : linhas) {
-                System.out.print(x + " ");
+                System.out.printf("%4d ", x);
             }
             System.out.println();
         }
@@ -131,7 +131,7 @@ public class Main {
 
         for (int[] linhas : m3)
             for (int x : linhas)
-                System.out.print(x + " ");
+                System.out.printf("%4d ", x);
             System.out.println();
     }
     static void multiplicarMatrizes(int[][] m1, int[][] m2) {
@@ -145,7 +145,7 @@ public class Main {
 
         for (int[] linhas : resultado) {
             for (int x : linhas)
-                System.out.print(x + " ");
+                System.out.printf("%4d ", x);
             System.out.println();
         }
     }
@@ -158,7 +158,7 @@ public class Main {
 
         for (int[] linhas : m3) {
             for (int x : linhas)
-                System.out.print(x + " ");
+                System.out.printf("%4d ", x);
             System.out.println();
         }
     }
@@ -172,7 +172,7 @@ public class Main {
         }
         for (int[] linhas : resultado) {
             for (int x : linhas)
-                System.out.print(x + " ");
+                System.out.printf("%4d ", x);
             System.out.println();
         }
     }
