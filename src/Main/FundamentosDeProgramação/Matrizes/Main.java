@@ -15,7 +15,7 @@ public class Main {
         somarMatrizes(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //subtrairMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //multiplicarMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
-        //linhaParaColuna(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}});
+        //transposta(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}});
         //System.out.println(raizesIguais(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
         //multiplicarMatrizPorReal(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, 2);
     }
@@ -116,9 +116,8 @@ public class Main {
 
 
         for (int[] linhas : m3) {
-            for (int x : linhas) {
+            for (int x : linhas)
                 System.out.printf("%4d ", x);
-            }
             System.out.println();
         }
     }
@@ -129,10 +128,11 @@ public class Main {
             for (int j = 0; j < m1[i].length; j++)
                 m3[i][j] = m1[i][j] - m2[i][j];
 
-        for (int[] linhas : m3)
+        for (int[] linhas : m3) {
             for (int x : linhas)
                 System.out.printf("%4d ", x);
             System.out.println();
+        }
     }
     static void multiplicarMatrizes(int[][] m1, int[][] m2) {
         int[][] resultado = new int[m1.length][m2[0].length];
@@ -162,14 +162,13 @@ public class Main {
             System.out.println();
         }
     }
-    static void linhaParaColuna(int[][] m1) {
+    static void transposta(int[][] m1) {
         int[][] resultado = new int[m1[0].length][m1.length];
 
-        for (int i = 0; i < m1[0].length; i++) {
-            for (int j = 0; j < m1.length; j++) {
+        for (int i = 0; i < m1[0].length; i++)
+            for (int j = 0; j < m1.length; j++)
                 resultado[i][j] = m1[j][i];
-            }
-        }
+            
         for (int[] linhas : resultado) {
             for (int x : linhas)
                 System.out.printf("%4d ", x);
