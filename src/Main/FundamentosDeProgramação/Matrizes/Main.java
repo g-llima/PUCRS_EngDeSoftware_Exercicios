@@ -17,7 +17,8 @@ public class Main {
         //subtrairMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //multiplicarMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //linhaParaColuna(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}});
-        System.out.println(raizesIguais(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+        //System.out.println(raizesIguais(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
+        multiplicarMatrizPorReal(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, 2);
     }
 
     static void ex1() {
@@ -136,7 +137,6 @@ public class Main {
             System.out.println();
         }
     }
-
     static void multiplicarMatrizes(int[][] m1, int[][] m2) {
         int[][] resultado = new int[m1.length][m2[0].length];
 
@@ -147,6 +147,17 @@ public class Main {
 
 
         for (int[] linhas : resultado) {
+            for (int x : linhas)
+                System.out.print(x + " ");
+            System.out.println();
+        }
+    }
+    static void multiplicarMatrizPorReal(int[][] m1, int n) {
+        for (int i = 0; i < m1.length; i++)
+            for (int j = 0; j < m1[i].length; j++)
+                m1[i][j] *= n;
+
+        for (int[] linhas : m1) {
             for (int x : linhas)
                 System.out.print(x + " ");
             System.out.println();
