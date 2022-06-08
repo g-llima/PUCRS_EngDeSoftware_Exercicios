@@ -15,7 +15,8 @@ public class Main {
 
         //somarMatrizes(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
         //subtrairMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
-        multiplicarMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        //multiplicarMatrizes(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}}, new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        linhaParaColuna(new int[][]{{1, 4, 3}, {4, 5, 6}, {7, 8, 9}});
     }
 
     static void ex1() {
@@ -132,6 +133,20 @@ public class Main {
                     resultado[i][j] += m1[i][k] * m2[k][j];
 
 
+        for (int[] linhas : resultado) {
+            for (int x : linhas)
+                System.out.print(x + " ");
+            System.out.println();
+        }
+    }
+    static void linhaParaColuna(int[][] m1) {
+        int[][] resultado = new int[m1[0].length][m1.length];
+
+        for (int i = 0; i < m1[0].length; i++) {
+            for (int j = 0; j < m1.length; j++) {
+                resultado[i][j] = m1[j][i];
+            }
+        }
         for (int[] linhas : resultado) {
             for (int x : linhas)
                 System.out.print(x + " ");
