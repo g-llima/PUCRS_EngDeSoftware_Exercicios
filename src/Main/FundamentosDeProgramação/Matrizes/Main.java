@@ -124,18 +124,15 @@ public class Main {
     }
     static void subtrairMatrizes(int[][] m1, int[][] m2) {
         int[][] m3 = new int[m1.length][m1[0].length];
-        
-        for (int i = 0; i < m1.length; i++) {
-            for (int j = 0; j < m1[i].length; j++) {
+
+        for (int i = 0; i < m1.length; i++)
+            for (int j = 0; j < m1[i].length; j++)
                 m3[i][j] = m1[i][j] - m2[i][j];
-            }
-        }
-        for (int[] linhas : m3) {
-            for (int x : linhas) {
+
+        for (int[] linhas : m3)
+            for (int x : linhas)
                 System.out.print(x + " ");
-            }
             System.out.println();
-        }
     }
     static void multiplicarMatrizes(int[][] m1, int[][] m2) {
         int[][] resultado = new int[m1.length][m2[0].length];
@@ -154,7 +151,7 @@ public class Main {
     }
     static void multiplicarMatrizPorReal(int[][] m1, int n) {
         int[][] m3 = new int[m1.length][m1[0].length];
-        
+
         for (int i = 0; i < m1.length; i++)
             for (int j = 0; j < m1[i].length; j++)
                 m3[i][j] = m1[i][j] * n;
