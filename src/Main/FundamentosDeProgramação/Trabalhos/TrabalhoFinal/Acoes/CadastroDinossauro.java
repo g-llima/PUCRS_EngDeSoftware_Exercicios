@@ -27,6 +27,23 @@ public class CadastroDinossauro {
         return null;
     }
 
+    public boolean removerDinossauro(int id) {
+        int index = -1;
+        for (int i = 0; i < dinossauros.length; i++) {
+            if (dinossauros[i] == null) break;
+            if (dinossauros[i].getId() == id) index = i;
+        }
+        if (index != -1) {
+            dinossauros[index] = null;
+
+            for (int i = index; i < dinossauros.length - 1; i++) {
+                dinossauros[i] = dinossauros[i + 1];
+            }
+        }
+        System.out.println(index);
+        return index != -1;
+    }
+
     public void exibirDinossauros() {
         for (Dinossauro d : dinossauros) {
             System.out.println(d);

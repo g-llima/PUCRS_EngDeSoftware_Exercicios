@@ -8,9 +8,9 @@ public class Main {
     public static void main(String[] args) {
         CadastroDinossauro cd = new CadastroDinossauro();
 
-        Dinossauro d1 = new Dinossauro(0, "Raça do dino", 1, 1, 203, 45);
-        Dinossauro d2 = new Dinossauro(1, "Raça do dino2", 1, 2, 203, 45);
-        Dinossauro d3 = new Dinossauro(2, "Raça do dino2", 1, 1, 203, 45);
+        Dinossauro d1 = new Dinossauro(0, "T-REX", 1, 3, 2030, 30);
+        Dinossauro d2 = new Dinossauro(1, "PTERO", 2, 2, 529, 69);
+        Dinossauro d3 = new Dinossauro(2, "VELOCI", 1, 1, 53, 70);
 
         System.out.println(cd.adicionarDinossauro(d1));
         System.out.println(cd.adicionarDinossauro(d2));
@@ -18,9 +18,10 @@ public class Main {
 
         cd.exibirDinossauros();
 
-        //System.out.println(cd.removerDinossauro(0));
+        System.out.println(cd.removerDinossauro(1));
 
         cd.exibirDinossauros();
-        //System.out.println(cd.pesquisarDinossauro(0));
+
+
     }
 }
