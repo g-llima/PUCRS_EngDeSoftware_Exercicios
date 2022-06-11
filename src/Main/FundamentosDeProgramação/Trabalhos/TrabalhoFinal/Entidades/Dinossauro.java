@@ -42,13 +42,16 @@ public class Dinossauro {
 
     @Override
     public String toString() {
-        return "Dinossauro{" +
-                "id=" + id +
-                ", nomeRaca='" + nomeRaca + '\'' +
-                ", tipo=" + tipo +
-                ", categoria=" + categoria +
-                ", peso=" + peso +
-                ", velocidade=" + velocidade +
-                '}';
+        String catMSG;
+        if (categoria == 1) catMSG = "Pequeno porte (1)";
+        else if (categoria == 2) catMSG = "Medio porte (2)";
+        else catMSG = "Grande porte (3)";
+        return "Dinossauro:" +
+                "\nID: " + id +
+                "\nNome da raca: " + nomeRaca +
+                "\nTipo: " + (tipo == 1 ? "Carnivoro (1)" : "Herbivoro (2)") +
+                "\nCategoria: " + catMSG +
+                "\nPeso: " + peso +
+                " kg\nVelocidade: " + velocidade + " km/h\n";
     }
 }

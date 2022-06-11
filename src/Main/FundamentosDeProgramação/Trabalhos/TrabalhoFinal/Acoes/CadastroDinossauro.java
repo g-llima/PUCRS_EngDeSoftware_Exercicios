@@ -2,9 +2,12 @@ package Main.FundamentosDeProgramação.Trabalhos.TrabalhoFinal.Acoes;
 
 import Main.FundamentosDeProgramação.Trabalhos.TrabalhoFinal.Entidades.Dinossauro;
 
+import java.util.Arrays;
+
 public class CadastroDinossauro {
 
     Dinossauro[] dinossauros = new Dinossauro[10];
+    int dinosCriados = 0;
 
     public boolean adicionarDinossauro(Dinossauro dino) {
         int pos = -1;
@@ -15,6 +18,7 @@ public class CadastroDinossauro {
             }
         if (pos != -1) {
             dinossauros[pos] = dino;
+            dinosCriados++;
             return true;
         }
         return false;
@@ -39,15 +43,18 @@ public class CadastroDinossauro {
                 dinossauros[i] = dinossauros[i + 1];
             }
         }
-        System.out.println(index);
         return index != -1;
     }
-    public void exibirDinossauros() {
+    public boolean exibirDinossauros() {
+        boolean achou = false;
         for (Dinossauro d : dinossauros) {
-            if (d !=  null) System.out.println(d);
+            if (d !=  null) {
+                System.out.println(d);
+                achou = true;
+            }
         }
+        return achou;
     }
-
 
     //          MÉTODOS PARA GERAR RELATÓRIOS
 
@@ -67,7 +74,7 @@ public class CadastroDinossauro {
                 else herGP++;
             }
         }
-        return "Carnívoros: PP: " + carPP + ", MP: " + carMP + ", GP: " + carGP + ". Herbívoros: PP: " + herPP + ", MP: " + herMP + ", GP: " + herGP + ".";
+        return "Carnivoros: PP: " + carPP + ", MP: " + carMP + ", GP: " + carGP + ".\nHerbivoros: PP: " + herPP + ", MP: " + herMP + ", GP: " + herGP + ".";
     }
     public Dinossauro relatorioPesoPesado(int tipo, int categoria) {
         Dinossauro maisPesado = null;
@@ -102,7 +109,7 @@ public class CadastroDinossauro {
         }
         return valor * 30;
     }
-    public boolean relatorioPossivelFuga(int idDino, float distanciaDinoBunker, float distanciaPessoaBunker) {
+    public boolean relatorioPossivelFuga(int idDino, double distanciaDinoBunker, double distanciaPessoaBunker) {
         Dinossauro dino = null;
 
         for (Dinossauro d : dinossauros) {
@@ -114,11 +121,12 @@ public class CadastroDinossauro {
         }
 
         if (dino != null) {
-            float tempoDinoBunker = (float) (distanciaDinoBunker / dino.getVelocidade());
-            float tempoPessoaBunker = distanciaPessoaBunker / 20f;
+            double tempoDinoBunker = distanciaDinoBunker / dino.getVelocidade();
+            double tempoPessoaBunker = distanciaPessoaBunker / 20;
             return tempoPessoaBunker < tempoDinoBunker;
+        } else {
+            System.out.println("\nDinossauro não encontrado.");
         }
-
         return false;
     }
     public Dinossauro[] relatorioMaioresVelocidades() {
@@ -130,24 +138,28 @@ public class CadastroDinossauro {
         }
         return bubbleSort(vetorDinos);
     }
-
-
     private Dinossauro[] bubbleSort(Dinossauro[] arr) {
         boolean trocou = true;
-        Dinossauro[] resultado = arr;
 
         while (trocou) {
             trocou = false;
-            for (int i = 0; i < resultado.length - 1; i++) {
-                if(resultado[i + 1] == null) break;
-                if (resultado[i].getVelocidade() < resultado[i + 1].getVelocidade()) {
-                    Dinossauro temp = resultado[i];
-                    resultado[i] = resultado[i + 1];
-                    resultado[i + 1] = temp;
+            for (int i = 0; i < arr.length - 1; i++) {
+                if(arr[i + 1] == null) break;
+                if (arr[i].getVelocidade() < arr[i + 1].getVelocidade()) {
+                    Dinossauro temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
                     trocou = true;
                 }
             }
         }
-        return resultado;
+        return arr;
+    }
+    public int tamanhoVetorNaoNulo() {
+        int count = dinosCriados;
+        for (Dinossauro d : dinossauros) {
+            if (d == null) break;
+        }
+        return count;
     }
 }
