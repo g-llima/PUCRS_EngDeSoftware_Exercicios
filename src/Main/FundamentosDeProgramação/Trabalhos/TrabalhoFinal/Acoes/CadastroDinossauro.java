@@ -44,7 +44,7 @@ public class CadastroDinossauro {
     }
     public void exibirDinossauros() {
         for (Dinossauro d : dinossauros) {
-            System.out.println(d);
+            if (d !=  null) System.out.println(d);
         }
     }
 
@@ -68,5 +68,25 @@ public class CadastroDinossauro {
             }
         }
         return "Carnívoros: PP: " + carPP + ", MP: " + carMP + ", GP: " + carGP + ". Herbívoros: PP: " + herPP + ", MP: " + herMP + ", GP: " + herGP + ".";
+    }
+    public Dinossauro relatorioPesoPesado(int tipo, int categoria) {
+        Dinossauro maisPesado = null;
+
+        for (Dinossauro d : dinossauros) {
+            if (d == null) break;
+            if (d.getTipo() == tipo && d.getCategoria() == categoria) {
+                maisPesado = d;
+                break;
+            }
+        }
+
+        for (Dinossauro d : dinossauros) {
+            if (d == null || maisPesado == null) break;
+
+            if (d.getTipo() == tipo && d.getCategoria() == categoria && d.getPeso() > maisPesado.getPeso()) {
+                maisPesado = d;
+            }
+        }
+        return maisPesado;
     }
 }
