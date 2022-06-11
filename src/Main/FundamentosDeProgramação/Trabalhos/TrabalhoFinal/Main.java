@@ -18,9 +18,9 @@ public class Main {
 
         cd.exibirDinossauros();
 
-        System.out.println(cd.removerDinossauro(1));
+//        System.out.println(cd.removerDinossauro(1));
 
-        cd.exibirDinossauros();
+        System.out.println(cd.relatorioPorTipoECategoria());
 
 
     }
