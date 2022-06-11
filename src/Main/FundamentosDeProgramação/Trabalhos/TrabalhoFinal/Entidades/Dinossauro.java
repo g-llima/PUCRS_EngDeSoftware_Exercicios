@@ -3,25 +3,27 @@ package Main.FundamentosDeProgramação.Trabalhos.TrabalhoFinal.Entidades;
 public class Dinossauro {
 
     private int id;
-    private String raca;
+    private String nomeRaca;
     private int tipo;
     private double peso;
     private double velocidade;
+    private int categoria;
 
-    public Dinossauro(int id, String raca, int tipo, double peso, double velocidade) {
+    public Dinossauro(int id, String nomeRaca, int tipo, int categoria, double peso, double velocidade) {
         this.id = id;
-        this.raca = raca;
+        this.nomeRaca = nomeRaca;
         this.tipo = tipo;
         this.peso = peso;
         this.velocidade = velocidade;
+        this.categoria = categoria;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getRaca() {
-        return raca;
+    public String getNomeRaca() {
+        return nomeRaca;
     }
 
     public int getTipo() {
@@ -36,11 +38,13 @@ public class Dinossauro {
         return velocidade;
     }
 
+    public int getCategoria() { return categoria; }
+
     @Override
     public String toString() {
         return "Dinossauro{" +
                 "id=" + id +
-                ", raca='" + raca + '\'' +
+                ", nomeRaca='" + nomeRaca + '\'' +
                 ", tipo=" + tipo +
                 ", peso=" + peso +
                 ", velocidade=" + velocidade +
