@@ -121,4 +121,33 @@ public class CadastroDinossauro {
 
         return false;
     }
+    public Dinossauro[] relatorioMaioresVelocidades() {
+        Dinossauro[] vetorDinos = new Dinossauro[100];
+
+        for (int i = 0; i < 10; i++) {
+            if (dinossauros[i] == null) break;
+            vetorDinos[i] = dinossauros[i];
+        }
+        return bubbleSort(vetorDinos);
+    }
+
+
+    private Dinossauro[] bubbleSort(Dinossauro[] arr) {
+        boolean trocou = true;
+        Dinossauro[] resultado = arr;
+
+        while (trocou) {
+            trocou = false;
+            for (int i = 0; i < resultado.length - 1; i++) {
+                if(resultado[i + 1] == null) break;
+                if (resultado[i].getVelocidade() < resultado[i + 1].getVelocidade()) {
+                    Dinossauro temp = resultado[i];
+                    resultado[i] = resultado[i + 1];
+                    resultado[i + 1] = temp;
+                    trocou = true;
+                }
+            }
+        }
+        return resultado;
+    }
 }
