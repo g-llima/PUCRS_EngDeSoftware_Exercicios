@@ -89,4 +89,17 @@ public class CadastroDinossauro {
         }
         return maisPesado;
     }
+    public double relatorioQntCarneCarnivoros() {
+        float valor = 0;
+
+        for (Dinossauro d : dinossauros) {
+            if (d == null) break;
+            if (d.getTipo() == 1) {
+                if (d.getCategoria() == 1) valor += (d.getPeso() * 0.1f);
+                else if (d.getCategoria() == 2) valor += (d.getPeso() * 0.15f);
+                else valor += (d.getPeso() * 0.2f);
+            }
+        }
+        return valor * 30;
+    }
 }
