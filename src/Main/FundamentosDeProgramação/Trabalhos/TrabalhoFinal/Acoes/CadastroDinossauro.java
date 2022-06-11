@@ -4,7 +4,7 @@ import Main.FundamentosDeProgramação.Trabalhos.TrabalhoFinal.Entidades.Dinossa
 
 public class CadastroDinossauro {
 
-    Dinossauro[] dinossauros = new Dinossauro[100];
+    Dinossauro[] dinossauros = new Dinossauro[10];
 
     public boolean adicionarDinossauro(Dinossauro dino) {
         int pos = -1;
@@ -29,7 +29,7 @@ public class CadastroDinossauro {
 
     public void exibirDinossauros() {
         for (Dinossauro d : dinossauros) {
-            if (d != null) System.out.println(d);
+            System.out.println(d);
         }
     }
 }

@@ -46,6 +46,7 @@ public class Dinossauro {
                 "id=" + id +
                 ", nomeRaca='" + nomeRaca + '\'' +
                 ", tipo=" + tipo +
+                ", categoria=" + categoria +
                 ", peso=" + peso +
                 ", velocidade=" + velocidade +
                 '}';
