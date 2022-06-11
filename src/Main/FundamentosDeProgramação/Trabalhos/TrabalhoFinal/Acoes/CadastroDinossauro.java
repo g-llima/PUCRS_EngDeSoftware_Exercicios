@@ -102,4 +102,23 @@ public class CadastroDinossauro {
         }
         return valor * 30;
     }
+    public boolean relatorioPossivelFuga(int idDino, float distanciaDinoBunker, float distanciaPessoaBunker) {
+        Dinossauro dino = null;
+
+        for (Dinossauro d : dinossauros) {
+            if (d == null) break;
+            if (d.getId() == idDino) {
+                dino = d;
+                break;
+            }
+        }
+
+        if (dino != null) {
+            float tempoDinoBunker = (float) (distanciaDinoBunker / dino.getVelocidade());
+            float tempoPessoaBunker = distanciaPessoaBunker / 20f;
+            return tempoPessoaBunker < tempoDinoBunker;
+        }
+
+        return false;
+    }
 }
