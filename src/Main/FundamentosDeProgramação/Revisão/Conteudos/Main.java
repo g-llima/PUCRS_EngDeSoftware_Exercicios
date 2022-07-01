@@ -5,7 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        exR8();
+        double salary = readDouble("Digite o seu salario: ");
+        double porcentageRaise = readDouble("Digite a porcentagem de aumento: ");
+
+        System.out.println(salary);
+        System.out.println(porcentageRaise);
     }
 
     //VARIÁVEIS E TIPOS
@@ -231,5 +235,13 @@ public class Main {
 
             System.out.println();
         }
+    }
+
+    //MÉTODOS
+    public static double readDouble(String prompt) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print(prompt);
+        return sc.nextDouble();
     }
 }
