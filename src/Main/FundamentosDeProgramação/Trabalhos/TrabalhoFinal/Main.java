@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 /**
  * Todo o programa foi feito por mim, de forma indivídual.
- * Autor: Gabriel .
- * N° da matrícula:
+ * Autor: Gabriel de Lima da Silva.
+ * N° da matrícula: 22111104-0
  *
  * IMPORTANTE: Estou utilizando o JDK 17, por isso o uso do switch simplificado e do print diferente. Alguns computadores
  * do laboratório precisam atualizar o JDK para rodar o código.
