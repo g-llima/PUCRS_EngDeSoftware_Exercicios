@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        exC3();
+        exR8();
     }
 
     //VARIÁVEIS E TIPOS
@@ -73,6 +73,7 @@ public class Main {
         System.out.printf("\n%d anos, %d meses e %d dias equivalem a %d dias", jahre, monate, tage, summe);
     }
 
+
     //COMANDOS CONDICIONAIS
     static void exC1() {
         Scanner sc = new Scanner(System.in);
@@ -127,5 +128,108 @@ public class Main {
         }
 
         System.out.println(wochenTage[n - 1]);
+    }
+
+
+    //COMANDOS DE REPETIÇÃO
+    static void exR1() {
+        for (int i = 0; i < 20; i++)
+            System.out.println("Eu amo de estudar algoritmos!");
+    }
+    static void exR2() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nome: ");
+        String name = sc.nextLine();
+
+        System.out.print("N: ");
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++)
+            System.out.println(name);
+    }
+    static void exR3() {
+        int summe = 0;
+
+        for (int i = 1; i <= 15; i++)
+            summe += i;
+
+        System.out.println(summe);
+    }
+    static void exR4() {
+        Scanner sc = new Scanner(System.in);
+        int paare = 0;
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Insira um numero: ");
+            int n = sc.nextInt();
+
+            if (n % 2 == 0) paare++;
+        }
+
+        System.out.println(paare);
+    }
+    static void exR5() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Insira um valor: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= 10; i++)
+            System.out.println(n * i);
+    }
+    static void exR6() {
+        Scanner sc = new Scanner(System.in);
+        float soma = 0;
+
+        while (true) {
+            System.out.print("Insira um valor: ");
+            float n = sc.nextFloat();
+
+            if (n < 0) break;
+            soma += n;
+        }
+
+        System.out.println("Soma: " + soma);
+    }
+    static void exR7() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Insira um valor inteiro: ");
+        int n = sc.nextInt();
+
+        System.out.print("ORDEM (1 - CRESC. | 2 - DECRESC.): ");
+        int bestellen = sc.nextInt();
+
+        if (bestellen == 1) {
+            for (int i = 0; i <= n; i++)
+                System.out.print(i + " ");
+        } else if (bestellen == 2) {
+            for (int i = n; i >= 0; i--)
+                System.out.print(i + " ");
+        } else {
+            System.out.print("Valor invalido");
+        }
+    }
+    static void exR8() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Altura da piramide: ");
+        int hohe = sc.nextInt();
+
+        int k = 0;
+
+        for (int i = 1; i <= hohe; ++i, k = 0) {
+            for (int space = 1; space <= hohe - i; ++space) {
+                System.out.print("  ");
+            }
+
+            while (k != 2 * i - 1) {
+                System.out.print("# ");
+                ++k;
+            }
+
+            System.out.println();
+        }
     }
 }
